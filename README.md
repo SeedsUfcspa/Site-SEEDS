@@ -1,2 +1,0 @@
-# seeds
-Project SEEDS
