@@ -1,13 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
-import { App } from './app/app.component';
-import {provideAnimations} from '@angular/platform-browser/animations';
-import {provideEventPlugins} from '@taiga-ui/event-plugins';
+import { AppComponent } from './app/app.component';
 
-bootstrapApplication(App, {
-  providers: [
-    provideAnimations(),
-    provideEventPlugins(),
-    //...
-  ],
-}).catch((err) => console.error(err));
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
