@@ -1,13 +1,14 @@
 import { TuiRoot } from "@taiga-ui/core";
 import { Component } from '@angular/core';
+import { NavbarComponent } from "./components/navbar/navbar";
 import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TuiRoot],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss'],
+  imports: [NavbarComponent, RouterOutlet, TuiRoot]
 })
-export class App {
-  protected title = 'frontend';
+export class AppComponent {
+  title = 'seeds';
 }
