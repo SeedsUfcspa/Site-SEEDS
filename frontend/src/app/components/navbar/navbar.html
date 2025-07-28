@@ -1,7 +1,9 @@
 <nav class="navbar">
   <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="logo" />
   <ul class="nav-links">
-    <li><a href="#">INÍCIO</a></li>
+    <li>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a>
+    </li>
     <li><a href="#">EQUIPE</a></li>
     <li><a href="#">CONDUTA</a></li>
     <li><a href="#">ENSINO</a></li>

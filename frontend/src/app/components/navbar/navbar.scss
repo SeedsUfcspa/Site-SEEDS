@@ -30,6 +30,11 @@
       font-size: 0.9rem;
       white-space: nowrap; /* Evita quebra de linha */
     }
+
+    a.active {
+      border-bottom: 2px solid white;
+      font-weight: bold;
+    }
   }
 }
 
