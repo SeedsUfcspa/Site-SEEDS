@@ -1,0 +1,21 @@
+<div class="grid-container">
+  <div class="feature-card" *ngFor="let membro of equipe">
+    <div class="feature-icon" [style.background-color]="membro.cor">
+      <img [src]="membro.avatar" alt="{{ membro.nome }}">
+    </div>
+    <h3>{{ membro.nome }}</h3>
+    <p class="cargo">{{ membro.cargo }}</p>
+    <p>{{ membro.descricao }}</p>
+
+    <div class="social-links">
+      <a *ngIf="membro.linkedin" [href]="membro.linkedin" target="_blank" aria-label="LinkedIn">
+        <img src="assets/linkedin.svg" width="20" height="20" alt="LinkedIn">
+
+      </a>
+
+      <a *ngIf="membro.lattes" [href]="membro.lattes" target="_blank" aria-label="Lattes">
+        <img src="assets/lattes.png" width="25" height="25" alt="">
+      </a>
+    </div>
+  </div>
+</div>
