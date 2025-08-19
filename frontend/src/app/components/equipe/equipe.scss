@@ -1,68 +1,247 @@
+
+
+$gap: 0.75rem;
+$card-radius: 0.6rem;
+$card-shadow: 0 6px 12px rgba(0,0,0,0.06);
+$card-shadow-strong: 0 8px 18px rgba(0,0,0,0.08);
+$coord-max-width: 920px;
+$coord-media-ratio: 44%;
+$social-bg: #f7f7f7;
+$social-bg-hover: #efefef;
+$coord-social-bg: #f4f6f7;
+
 .grid-container {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: $gap;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 360px));
+  justify-content: center;
+  justify-items: stretch;
+}
+
+.section-title {
+  margin: 1.5rem 0 0.7rem;
+  font-size: 1.6rem;
+  text-align: center;
+  color: #2c3e50;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.coordenacao {
+  .grid-container {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    gap: $gap;
+  }
+
+  .feature-card.coord {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    max-width: $coord-max-width;
+    width: 100%;
+    padding: 0.6rem;
+    min-height: 260px;
+    border-radius: $card-radius;
+    box-shadow: $card-shadow-strong;
+    margin: 0 auto;
+
+    .coord-media {
+      flex: 0 0 $coord-media-ratio;
+      max-width: 420px;
+      overflow: hidden;
+      border-radius: 0.5rem;
+      display: block;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+    }
+
+    .coord-body {
+      flex: 1 1 (100% - $coord-media-ratio);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0.6rem 0.8rem;
+
+      .coord-top {
+        h3 {
+          margin: 0;
+          font-size: 1.6rem;
+          line-height: 1.08;
+          font-weight: 800;
+          text-align: left;
+        }
+
+        .cargo {
+          font-size: 1.05rem;
+          color: #5f7b86;
+          margin-top: 0.35rem;
+          text-align: left;
+        }
+
+        .descricao {
+          font-size: 1rem;
+          color: #435a63;
+          margin-top: 0.5rem;
+          text-align: left;
+        }
+      }
+
+      .social-links {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: 0;
+        padding-top: 0.25rem;
+
+        a {
+          width: 56px;
+          height: 56px;
+          border-radius: 10px;
+          background: $coord-social-bg;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+          transition: transform 0.12s, background 0.12s;
+
+          img {
+            width: 28px;
+            height: 28px;
+          }
+
+          &:hover {
+            transform: translateY(-3px);
+            background: #eef3f5;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 720px) {
+    .feature-card.coord {
+      flex-direction: column;
+      min-height: 480px;
+
+      .coord-media {
+        width: 100%;
+        height: clamp(260px, 36vh, 420px);
+        border-radius: $card-radius $card-radius 0 0;
+        flex: 0 0 auto;
+      }
+
+      .coord-body {
+        padding: 0.9rem;
+
+        .coord-top {
+          h3, .cargo, .descricao { text-align: center; }
+        }
+
+        .social-links {
+          justify-content: center;
+
+          a { width: 44px; height: 44px;
+            img { width: 20px; height: 20px; }
+          }
+        }
+      }
+    }
+  }
 }
 
 .feature-card {
   background: #fff;
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: $card-radius;
+  padding: 0 0 0.6rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-
-  &:hover {
-    transform: translateY(-5px);
-  }
-}
-
-.feature-icon {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
+  box-shadow: $card-shadow;
+  transition: transform 0.18s;
   overflow: hidden;
-  margin: 0 auto 1rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 360px;
+  margin: 0;
+  min-height: 460px;
+  justify-content: flex-start;
 
-  img {
+  &:hover { transform: translateY(-4px); }
+
+  .feature-icon {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: clamp(240px, 48vh, 360px);
+    border-radius: $card-radius $card-radius 0 0;
+    overflow: hidden;
+    margin: 0;
+    display: block;
+
+    img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
   }
-}
 
-.cargo {
-  font-style: italic;
-  color: #555;
-  margin-bottom: 0.5rem;
-}
+  h3 {
+    margin: 0.6rem 0 0.12rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #2c3e50;
+    text-align: center;
+    padding: 0 0.9rem;
+  }
 
-.social-links {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  .cargo {
+    margin: 0 0 0.36rem;
+    font-style: normal;
+    color: #8fa3b3;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 0 0.9rem;
+  }
 
-  a {
+  p:not(.cargo) {
+    color: #666;
+    font-size: 0.92rem;
+    margin: 0 0 0.6rem;
+    padding: 0 1rem;
+    line-height: 1.25;
+    display: block;
+  }
+
+  .social-links {
+    margin-top: auto;
+    margin-bottom: 0.4rem;
     display: flex;
-    align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: #f0f0f0;
-    transition: background 0.2s;
+    gap: 0.6rem;
+    padding-bottom: 0.35rem;
 
-    &:hover {
-      background: #e0e0e0;
-    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: $social-bg;
+      color: #c6c6c6;
+      transition: background 0.12s, transform 0.12s;
 
-    svg {
-      width: 20px;
-      height: 20px;
+      img { width: 18px; height: 18px; display: block; }
+
+      &:hover { background: $social-bg-hover; transform: translateY(-2px); }
     }
   }
+}
+
+@media (max-width: 960px) {
+  .grid-container { grid-template-columns: repeat(auto-fit, minmax(200px, 320px)); }
+}
+
+@media (max-width: 480px) {
+  .grid-container { gap: 0.5rem; grid-template-columns: 1fr; }
 }
