@@ -4,9 +4,8 @@ import { TuiAvatar } from '@taiga-ui/kit';
 
 @Component({
   selector: 'app-ensino',
-  imports: [ TuiAvatar,  TuiTitle],
+  imports: [TuiAvatar],
   templateUrl: './ensino.html',
-  styleUrl: './ensino.scss'
 })
 export class EnsinoComponent {
 
