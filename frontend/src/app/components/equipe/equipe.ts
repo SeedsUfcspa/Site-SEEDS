@@ -79,7 +79,7 @@ export class EquipeComponent {
       lattes: 'http://lattes.cnpq.br/3616095999526774'
     },
     {
-      nome: 'Maria Antônia Gómez de Oliveira Maia',
+      nome: 'Maria Antônia G. O. Maia',
       cargo: 'Bolsista PID UFCSPA',
       avatar: 'assets/fotos/mariaantonia.jpg',
       cor: '#2196f3',
@@ -95,7 +95,7 @@ export class EquipeComponent {
       lattes: 'http://lattes.cnpq.br/2220041455052899'
     },
     {
-      nome: 'Pedro Henrique Rosa Lacerda da Silva',
+      nome: 'Pedro Henrique R. L. da Silva',
       cargo: 'Bolsista ITI FAPERGS',
       avatar: 'assets/fotos/pedrosilva.jpg',
       cor: '#4caf50',

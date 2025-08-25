@@ -1,16 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --tui-font-text-s: 'Montserrat', sans-serif;
-  --tui-font-text-m: 'Montserrat', sans-serif;
-  --tui-font-text-l: 'Montserrat', sans-serif;
+  --tui-font-text-s: 'Inter', 'Montserrat', sans-serif;
+  --tui-font-text-m: 'Inter', 'Montserrat', sans-serif;
+  --tui-font-text-l: 'Inter', 'Montserrat', sans-serif;
   --tui-font-heading: 'Montserrat', sans-serif;
 }
 
+@layer base {
+  html, body {
+    @apply font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
 body, html {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--tui-font-text-m);
 }
