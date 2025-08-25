@@ -6,17 +6,17 @@ interface Membro {
   cargo: string;
   descricao?: string;
   avatar: string;
-  cor?: string;
-  linkedin?: string;
-  lattes?: string;
+  cor: string;
+  linkedin: string;
+  lattes: string;
   coordenacao?: boolean;
 }
 
 @Component({
   selector: 'app-equipe',
-  templateUrl: './equipe.html',
-  styleUrls: ['./equipe.scss'],
-  imports: [CommonModule]
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './equipe.html'
 })
 export class EquipeComponent {
   equipe: Membro[] = [

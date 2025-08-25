@@ -22,7 +22,7 @@
       <!-- Desktop links -->
       <ul class="hidden md:flex items-center gap-4 lg:gap-6 whitespace-nowrap">
         <li><a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base px-2 py-1 hover:opacity-90">INÍCIO</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">EQUIPE</a></li>
+        <li><a routerLink="/equipe" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">EQUIPE</a></li>
         <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">CONDUTA</a></li>
         <li><a routerLink="/ensino" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base px-2 py-1 hover:opacity-90">ENSINO</a></li>
         <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">PESQUISA</a></li>
@@ -52,7 +52,7 @@
 
         <ul class="flex flex-col gap-3 text-lg">
           <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="block px-3 py-3 rounded hover:bg-white/10">INÍCIO</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">EQUIPE</a></li>
+          <li><a routerLink="/equipe" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">EQUIPE</a></li>
           <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">CONDUTA</a></li>
           <li><a routerLink="/ensino" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="block px-3 py-3 rounded hover:bg-white/10">ENSINO</a></li>
           <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">PESQUISA</a></li>
