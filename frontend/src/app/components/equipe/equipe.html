@@ -1,0 +1,48 @@
+<ng-template #socialLinks let-membro>
+  <div class="social-links">
+    <a *ngIf="membro.linkedin" [href]="membro.linkedin" target="_blank" aria-label="LinkedIn">
+      <img src="assets/linkedin.svg" width="20" height="20" alt="LinkedIn">
+    </a>
+
+    <a *ngIf="membro.lattes" [href]="membro.lattes" target="_blank" aria-label="Lattes">
+      <img src="assets/lattes.png" width="25" height="25" alt="">
+    </a>
+  </div>
+</ng-template>
+
+<section class="coordenacao" *ngIf="coordenacao?.length">
+  <h2 class="section-title">COORDENAÇÃO</h2>
+  <div class="grid-container">
+    <div class="feature-card coord" *ngFor="let membro of coordenacao">
+      <div class="coord-media">
+        <img [src]="membro.avatar" alt="{{ membro.nome }}">
+      </div>
+
+      <div class="coord-body">
+        <div class="coord-top">
+          <h3>{{ membro.nome }}</h3>
+          <p class="cargo">{{ membro.cargo }}</p>
+          <p *ngIf="membro.descricao" class="descricao">{{ membro.descricao }}</p>
+        </div>
+
+        <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="equipe" *ngIf="equipeRestante?.length">
+  <h2 class="section-title">EQUIPE</h2>
+  <div class="grid-container">
+    <div class="feature-card" *ngFor="let membro of equipeRestante">
+      <div class="feature-icon" [style.background-color]="membro.cor">
+        <img [src]="membro.avatar" alt="{{ membro.nome }}">
+      </div>
+      <h3>{{ membro.nome }}</h3>
+      <p class="cargo">{{ membro.cargo }}</p>
+      <p *ngIf="membro.descricao">{{ membro.descricao }}</p>
+
+      <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
+    </div>
+  </div>
+</section>
