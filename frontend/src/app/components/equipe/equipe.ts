@@ -71,6 +71,14 @@ export class EquipeComponent {
       lattes: 'http://lattes.cnpq.br/3894471696605510'
     },
     {
+      nome: 'Handriel Scheffer',
+      cargo: 'Aluno - Informática Biomédica',
+      avatar: 'assets/fotos/handriel.jpg',
+      cor: '#8bc34a',
+      linkedin: 'https://www.linkedin.com/in/handriel-scheffer-77118440/',
+      lattes: 'http://lattes.cnpq.br/5144598152491299'
+    },
+    {
       nome: 'Lívia dos Reis E. da Silva',
       cargo: 'Aluna – Informática Biomédica',
       avatar: 'assets/fotos/livia.jpg',
@@ -109,7 +117,7 @@ export class EquipeComponent {
       cor: '#8bc34a',
       linkedin: 'https://www.linkedin.com/in/vit%C3%B3ria-lopes-cordeiro-42195730a',
       lattes: 'http://lattes.cnpq.br/1783002702904399'
-    }
+    },
   ];
 
   get coordenacao() {
