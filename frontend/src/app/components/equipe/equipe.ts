@@ -16,7 +16,8 @@ interface Membro {
   selector: 'app-equipe',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './equipe.html'
+  templateUrl: './equipe.html',
+  styleUrl: './equipe.scss'
 })
 export class EquipeComponent {
   equipe: Membro[] = [

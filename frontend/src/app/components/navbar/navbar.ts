@@ -9,39 +9,37 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.html',
+  styleUrl: './navbar.scss'
 })
 export class NavbarComponent implements OnDestroy {
-
   fullHeader = true;
+  menuOpen = false;
 
   constructor(private router: Router) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.fullHeader = event.urlAfterRedirects !== '/';
+        if (this.menuOpen) this.closeMenu();
       });
   }
 
-  private _menuOpen = false;
-  get menuOpen() { return this._menuOpen; }
-  set menuOpen(val: boolean) {
-    this._menuOpen = val;
-    this.setBodyScrollLock(val);
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+    this.setBodyScrollLock(this.menuOpen);
   }
 
   closeMenu() {
+    if (!this.menuOpen) return;
     this.menuOpen = false;
+    this.setBodyScrollLock(false);
   }
 
   private setBodyScrollLock(lock: boolean) {
     try {
-      document.body.style.overflow = lock ? 'hidden' : '';
-    } catch {
-      // safe fallback for non-browser environments
-    }
+      document.body.classList.toggle('no-scroll', lock);
+    } catch { /* ignore */ }
   }
 
-  ngOnDestroy() {
-    this.setBodyScrollLock(false);
-  }
+  ngOnDestroy() { this.setBodyScrollLock(false); }
 }
