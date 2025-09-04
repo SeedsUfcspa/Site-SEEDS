@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.html',
+  styleUrl: './navbar.scss'
 })
 export class NavbarComponent implements OnDestroy {
 
