@@ -1,66 +1,61 @@
-<nav class="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white sticky top-0 z-50 shadow-sm">
-  <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-    <div class="flex items-center justify-between h-14 md:h-16">
-      <a routerLink="/" class="flex items-center gap-3">
-        <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="h-9 md:h-12" />
-        <span class="sr-only">SEEDS - Início</span>
-      </a>
+<nav class="nav">
+  <div class="nav__inner">
+    <a routerLink="/" class="nav__brand">
+      <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="nav__logo" />
+      <span class="visually-hidden">SEEDS - Início</span>
+    </a>
 
-      <!-- Mobile toggle -->
-      <button
-        class="md:hidden p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
-        (click)="menuOpen = !menuOpen"
-        [attr.aria-expanded]="menuOpen"
-        aria-label="Abrir menu"
-      >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path *ngIf="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          <path *ngIf="menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
+    <button
+      class="nav__toggle"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Abrir menu"
+    >
+      <svg class="nav__toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path *ngIf="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"/>
+        <path *ngIf="menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
 
-      <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-4 lg:gap-6 whitespace-nowrap">
-        <li><a routerLink="/" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base px-2 py-1 hover:opacity-90">INÍCIO</a></li>
-        <li><a routerLink="/equipe" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">EQUIPE</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">CONDUTA</a></li>
-        <li><a routerLink="/ensino" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="text-sm md:text-base px-2 py-1 hover:opacity-90">ENSINO</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">PESQUISA</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">EVENTOS</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">FERRAMENTAS</a></li>
-        <li><a href="#" class="text-sm md:text-base font-medium px-2 py-1 hover:opacity-90">NOTÍCIAS</a></li>
-      </ul>
-    </div>
+    <ul class="nav__links">
+      <li><a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a></li>
+      <li><a routerLink="/equipe" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">EQUIPE</a></li>
+      <li><a href="#">CONDUTA</a></li>
+      <li><a routerLink="/ensino" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">ENSINO</a></li>
+      <li><a href="#">PESQUISA</a></li>
+      <li><a href="#">EVENTOS</a></li>
+      <li><a href="#">FERRAMENTAS</a></li>
+      <li><a href="#">NOTÍCIAS</a></li>
+    </ul>
   </div>
 
-  <!-- Mobile overlay menu -->
-  <div *ngIf="menuOpen" class="fixed inset-0 z-50 md:hidden">
-    <!-- backdrop -->
-    <button class="absolute inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" (click)="closeMenu()"></button>
-
-    <!-- panel (slides from top) -->
-    <div class="relative w-full h-full max-h-screen overflow-auto">
-      <div class="bg-gradient-to-b from-blue-600 to-green-600 text-white p-6 pt-5 h-full">
-        <div class="flex items-center justify-between mb-6">
-          <a routerLink="/" (click)="closeMenu()" class="flex items-center gap-3">
-            <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="h-9" />
-          </a>
-          <button class="p-2 rounded-md hover:bg-white/10 focus:outline-none" (click)="closeMenu()" aria-label="Fechar menu">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-          </button>
-        </div>
-
-        <ul class="flex flex-col gap-3 text-lg">
-          <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="block px-3 py-3 rounded hover:bg-white/10">INÍCIO</a></li>
-          <li><a routerLink="/equipe" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">EQUIPE</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">CONDUTA</a></li>
-          <li><a routerLink="/ensino" (click)="closeMenu()" routerLinkActive="underline" [routerLinkActiveOptions]="{ exact: true }" class="block px-3 py-3 rounded hover:bg-white/10">ENSINO</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">PESQUISA</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">EVENTOS</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">FERRAMENTAS</a></li>
-          <li><a href="#" (click)="closeMenu()" class="block px-3 py-3 rounded hover:bg-white/10">NOTÍCIAS</a></li>
-        </ul>
+  <div *ngIf="menuOpen" class="nav-mobile">
+    <button class="nav-mobile__backdrop" aria-hidden="true" (click)="closeMenu()"></button>
+    <div class="nav-mobile__panel">
+      <div class="nav-mobile__header">
+        <a routerLink="/" (click)="closeMenu()" class="nav__brand nav__brand--mobile">
+          <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="nav__logo" />
+        </a>
+  <button class="nav__toggle nav__toggle--close" (click)="closeMenu()" aria-label="Fechar menu" [attr.aria-expanded]="menuOpen">
+          <svg class="nav__toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
       </div>
+
+      <ul class="nav-mobile__links">
+        <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a></li>
+        <li><a routerLink="/equipe" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">EQUIPE</a></li>
+        <li><a href="#" (click)="closeMenu()">CONDUTA</a></li>
+        <li><a routerLink="/ensino" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">ENSINO</a></li>
+        <li><a href="#" (click)="closeMenu()">PESQUISA</a></li>
+        <li><a href="#" (click)="closeMenu()">EVENTOS</a></li>
+        <li><a href="#" (click)="closeMenu()">FERRAMENTAS</a></li>
+        <li><a href="#" (click)="closeMenu()">NOTÍCIAS</a></li>
+      </ul>
     </div>
   </div>
 </nav>

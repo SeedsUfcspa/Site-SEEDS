@@ -1,13 +1,15 @@
-<section class="bg-gray-50 py-12">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-[40px] leading-tight font-extrabold text-gray-800 text-center pt-5 pb-10">ENSINO</h2>
+<section class="teaching">
+  <div class="teaching__inner">
+    <h2 class="teaching__title">ENSINO</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div tuiCardLarge tuiAppearance="floating" class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center text-center min-h-[220px]">
-        <tui-avatar src="@tui.graduation-cap" size="xl" class="mb-4"></tui-avatar>
-        <h3 class="text-[1.25rem] font-bold text-gray-800 mb-2">GRADUAÇÃO</h3>
-        <p class="text-[#7a8ca3] mb-3 text-[1.05rem]">Disciplinas ministradas na graduação em Informática Biomédica na UFCSPA:</p>
-        <ul class="text-left text-gray-600 list-disc list-inside space-y-1 w-full max-w-xs mx-auto">
+    <div class="teaching-grid">
+      <div class="teaching-card" tuiCardLarge tuiAppearance="floating">
+        <tui-avatar src="@tui.graduation-cap" size="xl" class="teaching-card__icon"></tui-avatar>
+        <h3 class="teaching-card__heading">GRADUAÇÃO</h3>
+        <p class="teaching-card__desc">
+          Disciplinas ministradas na graduação em Informática Biomédica na UFCSPA:
+        </p>
+        <ul class="teaching-card__list">
           <li>Engenharia de Software I</li>
           <li>Engenharia de Software II</li>
           <li>Técnicas Avançadas de Projeto de Software</li>
@@ -15,20 +17,27 @@
         </ul>
       </div>
 
-      <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center text-center min-h-[220px]">
-        <tui-avatar src="@tui.plane" size="xl" class="mb-4 bg-[#2196f3]"></tui-avatar>
-        <h3 class="text-[1.25rem] font-bold text-gray-800 mb-2">MESTRADO & DOUTORADO</h3>
-        <p class="text-[#7a8ca3] mb-3 text-[1.05rem]">Disciplinas oferecidas pelo PPGTIGSaúde da UFCSPA:</p>
-        <ul class="text-left text-gray-600 list-disc list-inside space-y-1 w-full max-w-xs mx-auto">
+      <div class="teaching-card" tuiCardLarge tuiAppearance="neutral">
+        <tui-avatar src="@tui.plane" size="xl" class="teaching-card__icon teaching-card__icon--accent"></tui-avatar>
+        <h3 class="teaching-card__heading">MESTRADO &amp; DOUTORADO</h3>
+        <p class="teaching-card__desc">
+          Disciplinas oferecidas pelo PPGTIGSaúde da UFCSPA:
+        </p>
+        <ul class="teaching-card__list">
           <li>Saúde Digital e Sustentabilidade</li>
           <li>Talks about Healthcare Software</li>
         </ul>
       </div>
 
-      <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-md flex flex-col items-center text-center min-h-[220px]">
-        <tui-avatar src="@tui.users" size="xl" class="mb-4"></tui-avatar>
-        <h3 class="text-[1.25rem] font-bold text-gray-800 mb-2">PID (Iniciação à Docência)</h3>
-        <p class="text-[#7a8ca3] leading-relaxed text-[1.05rem]">Desenvolvimento de plataforma digital da Engenharia de Software Biomédico da UFCSPA (Edital PROGRAD 80/2024).</p>
+      <div class="teaching-card" tuiCardLarge tuiAppearance="neutral">
+        <tui-avatar src="@tui.users" size="xl" class="teaching-card__icon"></tui-avatar>
+        <h3 class="teaching-card__heading">PID (Iniciação à Docência)</h3>
+        <p class="teaching-card__desc">
+          Ações para inovação no ensino superior com foco em sustentabilidade.
+        </p>
+        <p class="teaching-card__desc">
+          Desenvolvimento de plataforma digital (Edital PROGRAD 80/2024).
+        </p>
       </div>
     </div>
   </div>

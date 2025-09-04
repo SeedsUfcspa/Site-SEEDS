@@ -1,114 +1,113 @@
-<section class="relative flex items-center justify-center md:min-h-[400px] min-h-[320px] pt-0 px-4 md:px-16 py-16 md:py-24 bg-gradient-to-r from-blue-500 to-green-600 text-white">
-  <header tui-header class="w-full">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+<section class="hero">
+  <header class="hero__inner" tuiHeader>
+    <div class="hero__content">
+      <h1 class="hero__title">
         Sustentabilidade na Engenharia de<br />Software Biomédico
       </h1>
-      <p class="text-base sm:text-lg mb-6">Grupo de Pesquisa da UFCSPA</p>
+      <p class="hero__subtitle">Grupo de Pesquisa da UFCSPA</p>
 
-      <div class="flex flex-wrap justify-center gap-3">
-        <button appearance="primary" class="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-5 py-2.5 rounded-md font-semibold">
-          O QUE É SEEDS?
-        </button>
-        <button appearance="primary" class="bg-white/20 hover:bg-white/30 text-white px-4 sm:px-5 py-2.5 rounded-md font-semibold">
-          MISSÃO
-        </button>
+      <div class="hero__actions">
+        <button tuiButton appearance="primary" size="m">O QUE É SEEDS?</button>
+        <button tuiButton appearance="secondary" size="m">PROJETOS</button>
+        <button tuiButton appearance="flat" size="m">MISSÃO</button>
       </div>
     </div>
   </header>
 
-  <div class="absolute left-0 right-0 bottom-0 w-full h-24 overflow-hidden pointer-events-none">
-    <svg viewBox="0 0 1440 100" width="100%" height="100" preserveAspectRatio="none" class="block">
+  <div class="hero__wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
       <path d="M0,40 C480,120 960,0 1440,60 L1440,100 L0,100 Z" fill="#f8f7f7" />
     </svg>
   </div>
 </section>
 
-<section class="bg-gray-50 py-12">
-  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div tuiCardLarge tuiAppearance="floating" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.user" size="xl" class="mb-4"></tui-avatar>
-      <h3  class="text-lg font-bold text-gray-800 mb-2" >ENSINO</h3>
-      <p class="text-gray-500 text-base">
+<section class="section section--light">
+  <div class="features-grid">
+    <div class="feature-card" tuiCardLarge tuiAppearance="floating">
+      <tui-avatar src="@tui.user" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">ENSINO</h3>
+      <p class="feature-card__text">
         Disciplinas na graduação, na pós-graduação (mestrado e doutorado) e cursos de curta duração.
       </p>
     </div>
 
-    <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.binoculars" size="xl" class="mb-4 bg-[#2196f3]"></tui-avatar>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">PESQUISA</h3>
-      <p class="text-gray-500 text-base">
-        Pesquisas em Engenharia de Software com foco em sustentabilidade, promovendo soluções digitais responsáveis, éticas e alinhadas aos ODSs da Agenda 2030.
+    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+      <tui-avatar src="@tui.binoculars" size="xl" class="feature-card__icon feature-card__icon--accent"></tui-avatar>
+      <h3 class="feature-card__title">PESQUISA</h3>
+      <p class="feature-card__text">
+        Pesquisas em Engenharia de Software com foco em sustentabilidade e ODS.
       </p>
     </div>
 
-    <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.users" size="xl" class="mb-4"></tui-avatar>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">EXTENSÃO</h3>
-      <p class="text-gray-500 text-base">
-        Desenvolvimento, promoção e uso de soluções digitais responsáveis, inclusivas e alinhadas às necessidades sociais e aos ODS da Agenda 2030.
+    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+      <tui-avatar src="@tui.users" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">EXTENSÃO</h3>
+      <p class="feature-card__text">
+        Soluções digitais responsáveis e alinhadas às necessidades sociais.
       </p>
     </div>
 
-    <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.bookmark" size="xl" class="mb-4"></tui-avatar>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">EVENTOS</h3>
-      <p class="text-gray-500 text-base">
-        Eventos que conectam Engenharia de Software, Sustentabilidade e os ODS, incentivando a troca de conhecimentos, a inovação responsável e o engajamento com a sociedade.
+    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+      <tui-avatar src="@tui.bookmark" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">EVENTOS</h3>
+      <p class="feature-card__text">
+        Conectando Engenharia de Software, Sustentabilidade e os ODS.
       </p>
     </div>
 
-    <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.monitor" size="xl" class="mb-4"></tui-avatar>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">MODELOS E FERRAMENTAS</h3>
-      <p class="text-gray-500 text-base">
-        Desenvolvimento de modelos e ferramentas de código aberto, baseados em evidências, que incorporam princípios de sustentabilidade à Engenharia de Software biomédico.
+    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+      <tui-avatar src="@tui.monitor" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">MODELOS E FERRAMENTAS</h3>
+      <p class="feature-card__text">
+        Modelos e ferramentas open source baseados em evidências para software sustentável.
       </p>
     </div>
 
-    <div tuiCardLarge tuiAppearance="neutral" class="bg-white rounded-xl p-6 shadow-lg flex flex-col items-center text-center min-h-[200px]">
-      <tui-avatar src="@tui.book-open" size="xl" class="mb-4"></tui-avatar>
-      <h3 class="text-lg font-bold text-gray-800 mb-2">PUBLICAÇÕES E BLOG</h3>
-      <p class="text-gray-500 text-base">
-        Reflexões, resultados e experiências dos nossos projetos, conectando teoria e prática em tecnologias digitais sustentáveis.
+    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+      <tui-avatar src="@tui.book-open" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">PUBLICAÇÕES E BLOG</h3>
+      <p class="feature-card__text">
+        Resultados e experiências conectando teoria e prática.
       </p>
     </div>
   </div>
+</section>
 
-  <section class="max-w-4xl mx-auto px-4 mt-16 text-center">
-    <h2 class="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">SEEDS</h2>
-    <p class="text-gray-500 text-base sm:text-lg leading-relaxed mb-8">
-      O logotipo do grupo SEEDS foi criado para transmitir a essência do que acreditamos: que a engenharia de software do futuro (e do presente!) deve ser ética, sustentável e baseada em evidências concretas. A sigla SEEDS representa, em português, “Sustentabilidade baseada em Evidências na Engenharia de Software”, e em inglês, “Sustainable and Evidence-based Engineering for Digital Systems”. O símbolo visual combina formas orgânicas e tecnológicas, como uma semente que cresce com propósito, expressando inovação, responsabilidade e compromisso com o impacto positivo.
-      <br /><br />
-      A identidade visual reforça os valores que orientam os projetos do grupo.
+<section class="section identity">
+  <div class="identity__inner">
+    <h2 class="section__title">SEEDS</h2>
+    <p class="section__lead">
+      O logotipo do grupo SEEDS foi criado para transmitir a essência de uma engenharia ética,
+      sustentável e baseada em evidências.
     </p>
 
-    <div class="flex justify-center items-end gap-6 flex-wrap">
-      <img src="assets/ods.png" alt="ODS" class="bg-white rounded-xl shadow-lg p-6 max-w-[260px] w-full object-contain" />
-      <img src="assets/SEEDS.png" alt="Logo SEEDS" class="bg-white rounded-xl shadow-lg p-6 max-w-[340px] w-full object-contain z-10" />
-      <img src="assets/biomedica.png" alt="Informática Biomédica" class="bg-white rounded-xl shadow-lg p-6 max-w-[260px] w-full object-contain" />
+    <div class="identity__logos">
+      <img src="assets/ods.png" alt="ODS" class="identity__logo" />
+      <img src="assets/SEEDS.png" alt="Logo SEEDS" class="identity__logo identity__logo--primary" />
+      <img src="assets/biomedica.png" alt="Informática Biomédica" class="identity__logo" />
     </div>
-  </section>
+  </div>
 
-  <section class="max-w-6xl mx-auto px-4 mt-20 flex flex-col gap-12">
-    <div class="flex flex-col md:flex-row items-center gap-8">
-      <img src="assets/missao.jpg" alt="Missão SEEDS" class="w-full md:w-[420px] rounded-lg shadow-lg bg-white object-cover" />
-      <div class="text-gray-500 md:text-left text-center">
-        <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Missão do SEEDS</h2>
-        <p class="leading-relaxed text-base sm:text-lg">
-          Promover o desenvolvimento sustentável na engenharia de software aplicado à saúde digital, por meio da produção e disseminação de conhecimento científico, de práticas baseadas em evidências e da formação de profissionais conscientes, éticos e comprometidos com o bem-estar social, ambiental, técnico, econômico e individual.
+  <div class="mission-vision">
+    <div class="mission-vision__block">
+      <img src="assets/missao.jpg" alt="Missão SEEDS" class="mission-vision__image" />
+      <div class="mission-vision__text">
+        <h2 class="mission-vision__title">Missão do SEEDS</h2>
+        <p>
+          Promover o desenvolvimento sustentável na engenharia de software aplicada à saúde digital...
         </p>
       </div>
     </div>
 
-    <div class="flex flex-col md:flex-row-reverse items-center gap-8">
-      <img src="assets/visao.jpg" alt="Visão SEEDS" class="w-full md:w-[420px] rounded-lg shadow-lg bg-white object-cover" />
-      <div class="text-gray-500 md:text-left text-center">
-        <h2 class="text-xl sm:text-2xl font-semibold text-gray-800 mb-3">Visão do SEEDS</h2>
-        <p class="leading-relaxed text-base sm:text-lg">
-          Ser reconhecido como referência nacional e internacional na promoção de modelos, métodos, padrões e ferramentas que incorporem a sustentabilidade ao desenvolvimento de software, especialmente em contextos da saúde digital, contribuindo para soluções tecnológicas mais éticas, responsáveis e alinhadas aos Objetivos de Desenvolvimento Sustentável da Agenda 2030.
+    <div class="mission-vision__block mission-vision__block--reverse">
+      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mission-vision__image" />
+      <div class="mission-vision__text">
+        <h2 class="mission-vision__title">Visão do SEEDS</h2>
+        <p>
+          Ser referência na promoção de modelos, métodos e ferramentas que incorporem sustentabilidade...
         </p>
       </div>
+      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mv-img" />
     </div>
-  </section>
+  </div>
 </section>
