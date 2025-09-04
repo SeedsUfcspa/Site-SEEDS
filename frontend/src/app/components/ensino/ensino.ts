@@ -7,6 +7,7 @@ import { TuiAvatar } from '@taiga-ui/kit';
   imports: [TuiAvatar],
   templateUrl: './ensino.html',
   styleUrl: './ensino.scss'
+  styleUrl: './ensino.scss'
 })
 
 export class EnsinoComponent {}
