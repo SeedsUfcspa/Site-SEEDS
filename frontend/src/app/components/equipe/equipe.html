@@ -21,9 +21,6 @@
           <h3>{{ membro.nome }}</h3>
           <p class="cargo">{{ membro.cargo }}</p>
           <p *ngIf="membro.descricao" class="descricao">{{ membro.descricao }}</p>
-          <h3>{{ membro.nome }}</h3>
-          <p class="cargo">{{ membro.cargo }}</p>
-          <p *ngIf="membro.descricao" class="descricao">{{ membro.descricao }}</p>
         </div>
         <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
       </div>
