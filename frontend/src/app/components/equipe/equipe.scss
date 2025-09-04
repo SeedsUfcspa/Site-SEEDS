@@ -10,12 +10,24 @@ $social-bg: #f7f7f7;
 $social-bg-hover: #efefef;
 $coord-social-bg: #f4f6f7;
 
+.coordenacao {
+  padding: 1.5rem 0;
+}
+
+section:not(.coordenacao) {
+  padding: 2rem 1rem;
+  background: transparent;
+}
+
 .grid-container {
   display: grid;
   gap: $gap;
   grid-template-columns: repeat(auto-fit, minmax(220px, 360px));
   justify-content: center;
   justify-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .section-title {

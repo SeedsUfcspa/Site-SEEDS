@@ -1,17 +1,13 @@
 <ng-template #socialLinks let-membro>
-  <div class="flex gap-3 mt-3">
-    <a *ngIf="membro.linkedin" [href]="membro.linkedin" target="_blank" aria-label="LinkedIn"
-       class="inline-flex items-center justify-center shadow-sm transition-transform hover:-translate-y-1"
-       [ngClass]="membro.coordenacao ? 'w-[56px] h-[56px] rounded-lg bg-[#f4f6f7]' : 'w-8 h-8 rounded-full bg-[#f7f7f7]'">
+  <div class="social-links">
+    <a *ngIf="membro.linkedin" [href]="membro.linkedin" target="_blank" aria-label="LinkedIn">
       <img src="assets/linkedin.svg"
            [attr.width]="membro.coordenacao ? 28 : 18"
            [attr.height]="membro.coordenacao ? 28 : 18"
            [attr.alt]="'LinkedIn ' + membro.nome" />
     </a>
 
-    <a *ngIf="membro.lattes" [href]="membro.lattes" target="_blank" aria-label="Lattes"
-       class="inline-flex items-center justify-center shadow-sm transition-transform hover:-translate-y-1"
-       [ngClass]="membro.coordenacao ? 'w-[56px] h-[56px] rounded-lg bg-[#f4f6f7]' : 'w-8 h-8 rounded-full bg-[#f7f7f7]'">
+    <a *ngIf="membro.lattes" [href]="membro.lattes" target="_blank" aria-label="Lattes">
       <img src="assets/lattes.png"
            [attr.width]="membro.coordenacao ? 28 : 18"
            [attr.height]="membro.coordenacao ? 28 : 18"
@@ -20,19 +16,19 @@
   </div>
 </ng-template>
 
-<section *ngIf="coordenacao?.length" class="coordenacao py-6">
-  <h2 class="text-2xl font-semibold text-center text-[#2c3e50] mb-4">COORDENAÇÃO</h2>
-  <div class="grid grid-cols-1 gap-4 place-items-center">
-    <div *ngFor="let membro of coordenacao" class="flex flex-col md:flex-row items-stretch gap-4 w-full max-w-[920px] p-4 md:p-6 rounded-lg shadow-lg bg-white min-h-[480px] md:min-h-[260px]">
-      <div class="md:flex-shrink-0 md:w-[44%] max-w-[420px] w-full overflow-hidden rounded-md h-[260px] md:h-auto">
-        <img [src]="membro.avatar" [alt]="membro.nome" class="w-full h-full object-cover object-center block" />
+<section *ngIf="coordenacao?.length" class="coordenacao">
+  <h2 class="section-title">COORDENAÇÃO</h2>
+  <div class="grid-container">
+    <div *ngFor="let membro of coordenacao" class="feature-card coord">
+      <div class="coord-media">
+        <img [src]="membro.avatar" [alt]="membro.nome" />
       </div>
 
-      <div class="flex-1 flex flex-col justify-between px-2 py-1">
+      <div class="coord-body">
         <div class="coord-top">
-          <h3 class="text-2xl md:text-3xl font-extrabold text-[#2c3e50] mb-1">{{ membro.nome }}</h3>
-          <p class="text-base text-[#5f7b86] mb-2">{{ membro.cargo }}</p>
-          <p *ngIf="membro.descricao" class="text-base text-[#435a63]">{{ membro.descricao }}</p>
+          <h3>{{ membro.nome }}</h3>
+          <p class="cargo">{{ membro.cargo }}</p>
+          <p *ngIf="membro.descricao" class="descricao">{{ membro.descricao }}</p>
         </div>
 
         <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
@@ -41,23 +37,19 @@
   </div>
 </section>
 
-<section *ngIf="equipeRestante?.length" class="py-8 bg-transparent">
-  <h2 class="text-2xl font-semibold text-center text-[#2c3e50] mb-6">EQUIPE</h2>
-  <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <div *ngFor="let membro of equipeRestante" class="bg-white rounded-lg shadow-md flex flex-col items-stretch w-full max-w-[360px] mx-auto min-h-[460px] hover:-translate-y-1 transition-transform overflow-hidden">
-      <div class="feature-icon w-full h-[240px] md:h-[48vh] lg:h-[360px] rounded-t-lg overflow-hidden" [style.background-color]="membro.cor">
-        <img [src]="membro.avatar" [alt]="membro.nome" class="w-full h-full object-cover object-center block" />
+<section *ngIf="equipeRestante?.length">
+  <h2 class="section-title">EQUIPE</h2>
+  <div class="grid-container">
+    <div *ngFor="let membro of equipeRestante" class="feature-card">
+      <div class="feature-icon" [style.background-color]="membro.cor">
+        <img [src]="membro.avatar" [alt]="membro.nome" />
       </div>
 
-      <div class="p-4 flex flex-col flex-1">
-        <h3 class="text-lg font-bold text-[#2c3e50] mb-1">{{ membro.nome }}</h3>
-        <p class="cargo text-sm text-[#8fa3b3] mb-2">{{ membro.cargo }}</p>
-        <p *ngIf="membro.descricao" class="text-sm text-[#666] mb-4">{{ membro.descricao }}</p>
+      <h3>{{ membro.nome }}</h3>
+      <p class="cargo">{{ membro.cargo }}</p>
+      <p *ngIf="membro.descricao">{{ membro.descricao }}</p>
 
-        <div class="mt-auto">
-          <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
-        </div>
-      </div>
+      <ng-container *ngTemplateOutlet="socialLinks; context: { $implicit: membro }"></ng-container>
     </div>
   </div>
 </section>
