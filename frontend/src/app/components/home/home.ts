@@ -6,8 +6,9 @@ import { TuiAvatar } from '@taiga-ui/kit';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [TuiAvatar],
+  imports: [ TuiTitle, TuiButton, TuiAvatar],
   templateUrl: './home.html',
+  styleUrl: './home.scss'
 })
 export class HomeComponent {
 
