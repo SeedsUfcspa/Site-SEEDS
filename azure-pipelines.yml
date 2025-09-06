@@ -63,6 +63,7 @@ stages:
             - task: CopyFiles@2
               displayName: 'Copia arquivos para o diretório /seeds.ufcspa.edu.br/desenv/'
               inputs:
+                SourceFolder: 'frontend'
                 Contents: '**'
                 TargetFolder: '/var/www/seeds.ufcspa.edu.br/desenv/'
                 CleanTargetFolder: true
