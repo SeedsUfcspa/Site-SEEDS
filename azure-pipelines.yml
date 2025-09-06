@@ -30,17 +30,17 @@ stages:
             displayName: 'Use Node.js $(NODE_VERSION)'
             inputs:
               versionSpec: $(NODE_VERSION)
-          - script: cd frontend
-            displayName: 'Access frontend folder'
           - script: npm install
             displayName: 'Install dependencies'
+            workingDirectory: frontend
           - script: npm run build
             displayName: 'Build application'
+            workingDirectory: frontend
           
           - task: ArchiveFiles@2
             displayName: 'Archive build files'
             inputs:
-              rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+              rootFolderOrFile: '$(System.DefaultWorkingDirectory)/frontend/'
               includeRootFolder: false
               archiveType: 'zip'
               archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
