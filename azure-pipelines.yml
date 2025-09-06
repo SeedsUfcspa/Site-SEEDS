@@ -30,6 +30,8 @@ stages:
             displayName: 'Use Node.js $(NODE_VERSION)'
             inputs:
               versionSpec: $(NODE_VERSION)
+          - script: cd frontend
+            displayName: 'Access frontend folder'
           - script: npm install
             displayName: 'Install dependencies'
           - script: npm run build
