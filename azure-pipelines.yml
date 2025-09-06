@@ -79,6 +79,6 @@ stages:
                   ls -la
                   echo '-> npm install --production:'
                   npm install
-                  npm run build
+                  #npm run build
                   pm2 reload seeds.ufcspa-desenv || pm2 start npm --name "seeds.ufcspa-desenv" -- start
                   pm2 save
