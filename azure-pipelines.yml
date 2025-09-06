@@ -73,6 +73,7 @@ stages:
                 targetType: 'inline'
                 script: |
                   cd /var/www/seeds.ufcspa.edu.br/desenv/
+                  rm -rf node_modules/
                   echo '-> Diretório atual:'
                   pwd
                   echo '-> Arquivos:'
