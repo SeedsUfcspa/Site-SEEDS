@@ -72,6 +72,7 @@ stages:
               inputs:
                 targetType: 'inline'
                 script: |
+                  cd /var/www/seeds.ufcspa.edu.br/desenv/
                   echo '-> Diretório atual:'
                   pwd
                   echo '-> Arquivos:'
