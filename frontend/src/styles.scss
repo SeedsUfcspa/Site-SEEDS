@@ -39,3 +39,12 @@ img {
   height: auto;
   display: block;
 }
+
+/* Offset de ancoragem para navbar sticky */
+[id] {
+  scroll-margin-top: 5.5rem; /* ajusta se mudar altura da navbar */
+}
+
+@media (min-width: 768px) {
+  [id] { scroll-margin-top: 6rem; }
+}

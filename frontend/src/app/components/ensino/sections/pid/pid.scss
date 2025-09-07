@@ -1,0 +1,15 @@
+@use 'sass:color';
+
+.ensino-section { padding:2.5rem 0 1.5rem; border-bottom:1px solid #e4e4e4; }
+.ensino-section:last-child { border-bottom:none; }
+.ensino-card { position:relative; background:#fff; border-radius:1rem; padding:1.6rem 1.4rem 1.4rem; text-align:center; box-shadow:0 6px 16px -4px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08); transition:.25s cubic-bezier(.22,.61,.36,1); }
+.ensino-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px -6px rgba(0,0,0,.18),0 4px 14px rgba(0,0,0,.10); }
+.ensino-card__icon { margin:0 auto 1rem; }
+.ensino-card__title { margin:0 0 .6rem; font-size:1.35rem; font-weight:700; color:#2c3e50; }
+.ensino-card__lead { margin:0 0 .9rem; font-size:.95rem; color:#6a7a89; line-height:1.4; }
+.ensino-card__text { margin:0 0 .9rem; font-size:.95rem; color:#56646f; }
+.ensino-card__list { list-style:disc; padding:0 0 0 1.1rem; margin:0; text-align:left; max-width:260px; font-size:.9rem; color:#56646f; margin-left:auto; margin-right:auto; }
+.ensino-card__list li { margin:.3rem 0; }
+.ensino-section__title { font-size:1.8rem; margin:0 0 .75rem; font-weight:600; color:#2c3e50; }
+.ensino-section__lead { margin:0 0 .75rem; font-size:1rem; line-height:1.4; color:#444; }
+.ensino-section__text { margin:0 0 .75rem; color:#444; }

@@ -1,18 +1,14 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { TuiCheckbox } from '@taiga-ui/kit';
-import { TuiAvatar } from '@taiga-ui/kit';
+import { TuiCheckbox, TuiAvatar } from '@taiga-ui/kit';
 import { TuiButton } from '@taiga-ui/core';
 
-// Modelo básico de item de checklist (fácil de extender depois)
 interface ChecklistItem {
   id: string;
   label: string;
   done: boolean;
-  // Se marcar este item, pode revelar filhos (sub-perguntas / fase seguinte)
   children?: ChecklistItem[];
-  // Campo opcional para guardar dica / ajuda
   hint?: string;
 }
 
@@ -24,8 +20,7 @@ interface ChecklistItem {
   styleUrl: './checklist.scss'
 })
 export class ChecklistComponent {
-  // Estrutura inicial (placeholder). Cada "fase" é um item de topo do accordion conectado
-  phases = signal<ChecklistItem[]>([
+  readonly phases = signal<ChecklistItem[]>([
     {
       id: 'fase1',
       label: 'Fase 1: Preparação',
@@ -58,73 +53,41 @@ export class ChecklistComponent {
     }
   ]);
 
-  // Controla qual fase está expandida (accordion conectado)
-  // Começa tudo fechado; usuário precisa clicar para abrir a 1ª fase
   activePhaseIndex = signal<number | null>(null);
 
-  // Ao marcar um item filho, recalcula status da fase
-  toggleItem(phaseIdx: number, item: ChecklistItem) {
-    item.done = !item.done;
-    this.updatePhaseDone(phaseIdx);
-  }
-
-  // Marca todos dentro de uma fase
-  markPhase(phaseIdx: number, value: boolean) {
-    const cloned = [...this.phases()];
-    const phase = cloned[phaseIdx];
-    phase.done = value;
-    phase.children?.forEach(c => (c.done = value));
-    this.phases.set(cloned);
-    if (value) {
-      this.openNextIfAllowed(phaseIdx);
-    } else {
-      this.ensureActiveVisible();
-    }
-  }
-
-  // Atualiza estado done da fase se todos filhos estiverem concluidos
-  private updatePhaseDone(phaseIdx: number) {
-    const cloned = [...this.phases()];
-    const phase = cloned[phaseIdx];
-    if (phase.children?.length) {
-      phase.done = phase.children.every(c => c.done);
-    }
-    this.phases.set(cloned);
-    if (phase.done) {
-      this.openNextIfAllowed(phaseIdx);
-    } else {
-      this.ensureActiveVisible();
-    }
-  }
-
-  // Avança para próxima fase automaticamente quando atual completa
-  autoAdvance(phaseIdx: number) {
-    const phases = this.phases();
-    if (phases[phaseIdx].done && phaseIdx < phases.length - 1) {
-      this.activePhaseIndex.set(phaseIdx + 1);
-    }
-  }
-
-  // Percentual geral concluído (exemplo de computado simples)
-  get progressPercent(): number {
+  readonly progressPercent = computed(() => {
     const all = this.phases().flatMap(p => p.children ?? []);
     const done = all.filter(i => i.done).length;
     return all.length ? Math.round((done / all.length) * 100) : 0;
+  });
+
+  trackByPhase(_i: number, p: ChecklistItem) { return p.id; }
+  trackByItem(_i: number, it: ChecklistItem) { return it.id; }
+
+  toggleItem(phaseIdx: number, item: ChecklistItem) {
+    item.done = !item.done;
+    this.syncPhaseDone(phaseIdx);
   }
 
-  // Retorna quantos itens concluídos em uma fase (usado no template)
+  markPhase(phaseIdx: number, value: boolean) {
+    const phases = [...this.phases()];
+    const phase = phases[phaseIdx];
+    phase.done = value;
+    phase.children?.forEach(c => (c.done = value));
+    this.phases.set(phases);
+    if (value) this.openNextIfAllowed(phaseIdx);
+  }
+
   countDone(phase: ChecklistItem): number {
     return phase.children ? phase.children.filter(c => c.done).length : 0;
   }
 
-  // Verifica se há pelo menos um item concluído na fase
-  hasAnyDone(phase: ChecklistItem): boolean {
-    return !!phase.children?.some(c => c.done);
-  }
-
-  // Total de itens na fase (helper simples)
   countTotal(phase: ChecklistItem): number {
     return phase.children?.length ?? 0;
+  }
+
+  hasAnyDone(phase: ChecklistItem): boolean {
+    return !!phase.children?.some(c => c.done);
   }
 
   isPhaseDone(phase: ChecklistItem): boolean {
@@ -142,38 +105,27 @@ export class ChecklistComponent {
     this.activePhaseIndex.set(current === i ? null : i);
   }
 
-  // Exibir somente a primeira fase ou fases cujas anteriores estejam concluídas
   canShowPhase(index: number): boolean {
     if (index === 0) return true;
     const prev = this.phases()[index - 1];
     return !!prev?.done;
   }
 
+  private syncPhaseDone(phaseIdx: number) {
+    const phases = [...this.phases()];
+    const phase = phases[phaseIdx];
+    if (phase.children?.length) {
+      phase.done = phase.children.every(c => c.done);
+    }
+    this.phases.set(phases);
+    if (phase.done) this.openNextIfAllowed(phaseIdx);
+  }
+
   private openNextIfAllowed(current: number) {
-    const next = current + 1;
-    if (this.canShowPhase(next)) {
-      this.activePhaseIndex.set(next);
+    const phases = this.phases();
+    if (current < phases.length - 1 && phases[current].done) {
+      this.activePhaseIndex.set(current + 1);
     }
-  }
-
-  private ensureActiveVisible() {
-    const active = this.activePhaseIndex();
-    if (active === null) return;
-    if (!this.canShowPhase(active)) {
-      for (let i = active; i >= 0; i--) {
-        if (this.canShowPhase(i)) {
-          this.activePhaseIndex.set(i);
-          return;
-        }
-      }
-      this.activePhaseIndex.set(0);
-    }
-  }
-
-  get activePhase(): ChecklistItem | null {
-    const idx = this.activePhaseIndex();
-    if (idx === null) return null;
-    return this.phases()[idx] ?? null;
   }
 }
 

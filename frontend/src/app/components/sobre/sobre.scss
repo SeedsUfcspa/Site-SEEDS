@@ -1,0 +1,51 @@
+.sobre { padding:3.5rem 1.25rem; background:#f5f7fa; }
+.sobre__inner { max-width:1180px; margin:0 auto; }
+.sobre__title { margin:0 0 2.5rem; font-size:clamp(2rem,1.4rem + 1.2vw,2.6rem); font-weight:800; letter-spacing:.5px; color:#2d3e52; text-align:center; }
+
+.sobre-section { padding:2.5rem 0 1.5rem; border-bottom:1px solid #e4e4e4; }
+.sobre-section:last-child { border-bottom:none; }
+.sobre-card { position:relative; background:#fff; border-radius:1rem; padding:1.8rem 1.5rem 1.5rem; text-align:center; box-shadow:0 6px 16px -4px rgba(0,0,0,.12),0 2px 6px rgba(0,0,0,.08); transition:.25s cubic-bezier(.22,.61,.36,1); }
+.sobre-card:hover { transform:translateY(-4px); box-shadow:0 12px 30px -6px rgba(0,0,0,.18),0 4px 14px rgba(0,0,0,.10); }
+.sobre-card__icon { margin:0 auto 1rem; }
+.sobre-card__title { margin:0 0 .6rem; font-size:1.35rem; font-weight:700; color:#2c3e50; }
+.sobre-card__text { margin:0 0 .9rem; font-size:.95rem; color:#56646f; line-height:1.45; }
+.sobre-card__link { display:inline-block; margin-top:.5rem; font-weight:600; color:#1f6dd1; text-decoration:none; }
+.sobre-card__link:hover { text-decoration:underline; }
+
+.sobre-section--wide { padding-top:3rem; }
+.sobre-card--wide {
+	width:100%;
+	max-width:1500px;
+	margin:0 auto;
+	text-align:center;
+	padding:2.2rem clamp(1.1rem,2.2vw,2.5rem) 2rem;
+	box-sizing:border-box;
+}
+.sobre-card--wide .sobre-card__title { font-size:1.55rem; }
+@media (max-width:900px){
+	.sobre-card--wide { text-align:center; }
+	.sobre-card--wide .sobre-card__icon { margin-left:auto; }
+	.sobre-card--wide .sobre-card__title { text-align:center; }
+}
+
+.mission-vision-block { border-bottom:none; padding:2rem 0 0; }
+.mission-vision-block + .mission-vision-block {
+	margin-top:2.2rem;
+	padding-top:3.2rem; 
+}
+.mv-flex { display:flex; flex-direction:column; gap:2rem; align-items:center; }
+@media (min-width:768px){
+	.mv-flex { flex-direction:row; }
+	.mv-flex--reverse { flex-direction:row-reverse; }
+}
+.mv-icon-wrap { display:flex; align-items:center; justify-content:center; }
+.mv-icon { box-shadow:0 6px 18px -4px rgba(0,0,0,.18),0 2px 6px rgba(0,0,0,.08); background:linear-gradient(135deg,#2563eb,#059669); color:#fff; }
+.mv-text { color:#56616d; text-align:center; }
+@media (min-width:768px){ .mv-text { text-align:left; } }
+.mv-text p { line-height:1.55; margin:0; font-size:1rem; text-align:justify; }
+.mv-title { margin:0 0 .9rem; font-size:clamp(1.25rem,1.1rem + .6vw,1.6rem); font-weight:600; color:#1f2f3a; }
+.mv-heading { margin:0 0 1.25rem; font-size:clamp(1.6rem,1.2rem + .9vw,2rem); font-weight:700; text-align:center; color:#1f2f3a; letter-spacing:.5px; }
+
+.mv-title,
+.sobre-card__title,
+.mv-heading { text-align:center; }

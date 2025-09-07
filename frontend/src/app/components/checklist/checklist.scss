@@ -1,5 +1,3 @@
-// Estilos do Checklist (foco em clareza e fácil customização)
-// Use variáveis simples; pode migrar para theming do Taiga se quiser depois
 
 $color-bg: #0f1115;
 $color-surface: #1b1f24;
@@ -56,10 +54,9 @@ $color-danger: #f06272;
 	}
 }
 
-// Accordion
 .phases {
 	--tui-radius-l: .85rem;
-	--tui-base-01: $color-surface; // override leve
+	--tui-base-01: $color-surface;
 	--tui-base-02: lighten($color-surface, 3%);
 	--tui-base-03: $color-border;
 	--tui-text-01: $color-text;
@@ -143,7 +140,7 @@ $color-danger: #f06272;
 
 	&__hint {
 		display: block;
-		margin: .35rem 0 0 1.9rem; // alinhado ao texto após checkbox
+		margin: .35rem 0 0 1.9rem;
 		font-size: .7rem;
 		letter-spacing: .3px;
 		color: $color-text-dim;
@@ -286,14 +283,11 @@ $color-danger: #f06272;
 
 .phase-inline__actions { display: flex; gap: .5rem; flex-wrap: wrap; }
 
-// Responsividade simples
 @media (max-width: 680px) {
 	.checklist-header {
 		flex-direction: column;
 		align-items: flex-start;
 	}
-	.phase-header__status {
-		display: none; // economiza espaço
-	}
+	.phase-header__status { display: none; }
 }
 

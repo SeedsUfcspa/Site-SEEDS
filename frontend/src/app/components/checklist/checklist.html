@@ -1,54 +1,75 @@
 <div class="checklist-wrapper checklist-wrapper--connected">
-	<header class="checklist-header">
-		<h2>Checklist do Projeto</h2>
-		<div class="progress">
-			<span class="progress__label">Progresso:</span>
-			<span class="progress__value">{{ progressPercent }}%</span>
-		</div>
-		<button tuiButton size="s" appearance="secondary" (click)="markPhase(activePhaseIndex() ?? 0, true)">Fechar fase atual</button>
-	</header>
+    <header class="checklist-header">
+        <h2>Checklist do Projeto</h2>
+        <div class="progress">
+            <span class="progress__label">Progresso:</span>
+            <span class="progress__value">{{ progressPercent() }}%</span>
+        </div>
+        <button tuiButton size="s" appearance="secondary"
+            (click)="markPhase(activePhaseIndex() ?? 0, true)"
+            [disabled]="activePhaseIndex() === null">Fechar fase atual</button>
+    </header>
 
-		<div class="phase-groups">
-			<ng-container *ngFor="let phase of phases(); let i = index">
-				<ng-container *ngIf="canShowPhase(i)">
-					<div class="phase-group">
-						<button
-							class="phase-bar"
-							[disabled]="!canShowPhase(i)"
-							[class.phase-bar--active]="activePhaseIndex() === i"
-							[class.phase-bar--done]="isPhaseDone(phase)"
-							(click)="togglePhase(i)"
-						>
-							<tui-avatar size="s" [appearance]="isPhaseDone(phase) ? 'success' : 'neutral'" [src]="isPhaseDone(phase) ? '@tui.check' : ''"></tui-avatar>
-							<span class="phase-bar__title">{{ phase.label }}</span>
-						</button>
-						<div class="phase-inline" *ngIf="activePhaseIndex() === i">
-							<div class="phase-inline__items" *ngIf="phase.children?.length; else vazio">
-								<label class="phase-item" *ngFor="let item of phase.children">
-									<input
-										tuiCheckbox
-										type="checkbox"
-										[ngModel]="item.done"
-										(ngModelChange)="toggleItem(i, item)"
-									/>
-									<span class="phase-item__label" [class.phase-item__label--done]="item.done">{{ item.label }}</span>
-									<small class="phase-item__hint" *ngIf="item.hint && !item.done">{{ item.hint }}</small>
-								</label>
-							</div>
-							<ng-template #vazio>
-								<p class="empty">Sem itens nesta fase.</p>
-							</ng-template>
-							<div class="phase-inline__actions">
-								<button tuiButton size="s" appearance="flat" (click)="markPhase(i, true)" [disabled]="isPhaseDone(phase)">Marcar todos</button>
-								<button tuiButton size="s" appearance="flat" (click)="markPhase(i, false)" [disabled]="!hasAnyDone(phase)">Limpar</button>
-							</div>
-						</div>
-					</div>
-				</ng-container>
-			</ng-container>
-		</div>
+    <div class="phase-groups">
+        <ng-container *ngFor="let phase of phases(); let i = index; trackBy: trackByPhase">
+            <ng-container *ngIf="canShowPhase(i)">
+                <div class="phase-group">
+                    <button
+                        class="phase-bar"
+                        type="button"
+                        [disabled]="!canShowPhase(i)"
+                        [class.phase-bar--active]="activePhaseIndex() === i"
+                        [class.phase-bar--done]="isPhaseDone(phase)"
+                        (click)="togglePhase(i)"
+                        [attr.aria-expanded]="activePhaseIndex() === i"
+                    >
+                        <tui-avatar size="s"
+                            [appearance]="isPhaseDone(phase) ? 'success' : 'neutral'"
+                            [src]="isPhaseDone(phase) ? '@tui.check' : '@tui.folder'">
+                        </tui-avatar>
+                        <span class="phase-bar__title">{{ phase.label }}</span>
+                        <span class="phase-bar__count" *ngIf="phase.children?.length">
+                            {{ countDone(phase) }}/{{ countTotal(phase) }}
+                        </span>
+                    </button>
 
-	<footer class="checklist-footer">
-		<button tuiButton size="m" appearance="primary" [disabled]="progressPercent < 100">Finalizar</button>
-	</footer>
+                    <div class="phase-inline" *ngIf="activePhaseIndex() === i">
+                        <div class="phase-inline__items" *ngIf="phase.children?.length; else vazio">
+                            <label class="phase-item" *ngFor="let item of phase.children; trackBy: trackByItem">
+                                <input
+                                    tuiCheckbox
+                                    type="checkbox"
+                                    [ngModel]="item.done"
+                                    (ngModelChange)="toggleItem(i, item)"
+                                />
+                                <span class="phase-item__label" [class.phase-item__label--done]="item.done">
+                                    {{ item.label }}
+                                </span>
+                                <small class="phase-item__hint" *ngIf="item.hint && !item.done">{{ item.hint }}</small>
+                            </label>
+                        </div>
+                        <ng-template #vazio>
+                            <p class="empty">Sem itens nesta fase.</p>
+                        </ng-template>
+                        <div class="phase-inline__actions">
+                            <button tuiButton size="s" appearance="flat"
+                                (click)="markPhase(i, true)" [disabled]="isPhaseDone(phase)">
+                                Marcar todos
+                            </button>
+                            <button tuiButton size="s" appearance="flat"
+                                (click)="markPhase(i, false)" [disabled]="!hasAnyDone(phase)">
+                                Limpar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+
+    <footer class="checklist-footer">
+        <button tuiButton size="m" appearance="primary" [disabled]="progressPercent() < 100">
+            Finalizar
+        </button>
+    </footer>
 </div>

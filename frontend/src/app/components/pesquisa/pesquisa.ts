@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
+import { PesquisaProjetoComponent } from './sections/projeto/projeto';
+import { PesquisaIcComponent } from './sections/ic/ic';
+import { PesquisaItComponent } from './sections/it/it';
+import { PesquisaPetComponent } from './sections/pet/pet';
 
 @Component({
   selector: 'app-pesquisa',
-  imports: [],
+  standalone: true,
+  imports: [PesquisaProjetoComponent, PesquisaIcComponent, PesquisaItComponent, PesquisaPetComponent],
   templateUrl: './pesquisa.html',
   styleUrl: './pesquisa.scss'
 })
-export class Pesquisa {
-
-}
+export class PesquisaComponent {}

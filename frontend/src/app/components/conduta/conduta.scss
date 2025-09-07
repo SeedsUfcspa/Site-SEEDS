@@ -1,0 +1,18 @@
+@use 'sass:color';
+
+.conduta { padding:3.5rem 1.25rem; background:#f5f7fa; }
+.conduta__inner { max-width:960px; margin:0 auto; }
+.conduta__title { margin:0 0 2.5rem; font-size:clamp(2rem,1.4rem + 1.2vw,2.4rem); font-weight:800; letter-spacing:.5px; color:#2d3e52; text-align:center; }
+
+.conduta-block { background:#fff; padding:1.75rem 1.5rem 1.6rem; border-radius:1rem; box-shadow:0 6px 16px -4px rgba(0,0,0,.10),0 2px 6px rgba(0,0,0,.06); margin:0 0 1.75rem; }
+.conduta-block:last-child { margin-bottom:0; }
+.conduta-block__heading { margin:0 0 1rem; font-size:1.35rem; font-weight:700; color:#2c3e50; }
+.conduta-block__subheading { margin:1.2rem 0 .6rem; font-size:1rem; font-weight:600; color:#2d4055; }
+
+.conduta-list { margin:.25rem 0 1rem 1.1rem; padding:0; list-style:disc; color:#4f5d66; font-size:.95rem; line-height:1.4; }
+.conduta-list li { margin:.35rem 0; }
+.conduta-list--danger { list-style:disc; }
+.conduta-list--danger li { color:#8a1f1f; }
+
+a { color:#1f6dd1; text-decoration:none; }
+a:hover { text-decoration:underline; }

@@ -1,15 +1,16 @@
-<nav class="nav">
+<nav class="nav" aria-label="Navegação principal">
   <div class="nav__inner">
     <a routerLink="/" class="nav__brand">
-      <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="nav__logo" />
-      <span class="visually-hidden">SEEDS - Início</span>
+      <img src="assets/SEEDSbranco.png" alt="SEEDS" class="nav__logo" />
+      <span class="visually-hidden">Início</span>
     </a>
 
     <button
       class="nav__toggle"
+      type="button"
       (click)="toggleMenu()"
       [attr.aria-expanded]="menuOpen"
-      aria-label="Abrir menu"
+      [attr.aria-label]="menuOpen ? 'Fechar menu' : 'Abrir menu'"
     >
       <svg class="nav__toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path *ngIf="!menuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -19,43 +20,89 @@
       </svg>
     </button>
 
-    <ul class="nav__links">
-      <li><a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a></li>
-      <li><a routerLink="/equipe" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">EQUIPE</a></li>
-      <li><a href="#">CONDUTA</a></li>
-      <li><a routerLink="/ensino" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">ENSINO</a></li>
-      <li><a href="#">PESQUISA</a></li>
-      <li><a href="#">EVENTOS</a></li>
-      <li><a href="#">FERRAMENTAS</a></li>
-      <li><a href="#">NOTÍCIAS</a></li>
+    <ul class="nav__links nav__links--desktop-groups">
+      <li class="nav__simple">
+        <a routerLink="/" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a>
+      </li>
+
+      <li class="nav__group" *ngFor="let group of mobileGroups; trackBy: trackByGroup">
+        <a class="nav__group-primary" [routerLink]="group.primaryLink" routerLinkActive="is-active">{{ group.label | uppercase }}</a>
+        <div class="nav__dropdown" role="menu" [attr.aria-label]="'Secundário ' + group.label">
+          <ul class="nav__dropdown-list" role="none">
+            <li role="none" *ngFor="let it of group.items; trackBy: trackByLabel">
+              <a role="menuitem" [routerLink]="it.link" [fragment]="it.fragment">{{ it.label }}</a>
+            </li>
+          </ul>
+          <a class="nav__dropdown-see-all" [routerLink]="group.primaryLink">Ver página</a>
+        </div>
+      </li>
+
+      <li class="nav__simple">
+        <a routerLink="/checklist" routerLinkActive="is-active">CHECKLIST</a>
+      </li>
     </ul>
   </div>
 
-  <div *ngIf="menuOpen" class="nav-mobile">
-    <button class="nav-mobile__backdrop" aria-hidden="true" (click)="closeMenu()"></button>
-    <div class="nav-mobile__panel">
+  <div *ngIf="menuOpen" class="nav-mobile" (keydown.escape)="closeMenu()">
+    <div class="nav-mobile__panel" role="dialog" aria-modal="true" aria-label="Menu principal">
       <div class="nav-mobile__header">
         <a routerLink="/" (click)="closeMenu()" class="nav__brand nav__brand--mobile">
-          <img src="assets/SEEDSbranco.png" alt="SEEDS logo" class="nav__logo" />
+          <img src="assets/SEEDSbranco.png" alt="SEEDS" class="nav__logo" />
         </a>
-  <button class="nav__toggle nav__toggle--close" (click)="closeMenu()" aria-label="Fechar menu" [attr.aria-expanded]="menuOpen">
+        <button class="nav__toggle nav__toggle--close" (click)="closeMenu()" aria-label="Fechar menu" [attr.aria-expanded]="menuOpen">
           <svg class="nav__toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"/>
+                  d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
       </div>
 
-      <ul class="nav-mobile__links">
-        <li><a routerLink="/" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">INÍCIO</a></li>
-        <li><a routerLink="/equipe" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">EQUIPE</a></li>
-        <li><a href="#" (click)="closeMenu()">CONDUTA</a></li>
-        <li><a routerLink="/ensino" (click)="closeMenu()" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">ENSINO</a></li>
-        <li><a href="#" (click)="closeMenu()">PESQUISA</a></li>
-        <li><a href="#" (click)="closeMenu()">EVENTOS</a></li>
-        <li><a href="#" (click)="closeMenu()">FERRAMENTAS</a></li>
-        <li><a href="#" (click)="closeMenu()">NOTÍCIAS</a></li>
-      </ul>
+      <div class="mobile-accordion" role="list">
+        <div class="mobile-accordion__item" role="listitem">
+          <a routerLink="/" (click)="closeMenu()" class="mobile-accordion__primary">Início</a>
+        </div>
+
+        <div
+          class="mobile-accordion__item"
+          *ngFor="let group of mobileGroups; let i = index; trackBy: trackByGroup"
+          role="listitem"
+        >
+          <button
+            type="button"
+            class="mobile-accordion__primary"
+            (click)="toggleMobileSection(i)"
+            [attr.aria-expanded]="activeMobileIndex() === i"
+            [attr.aria-controls]="'grp-' + i"
+          >
+            <span>{{ group.label }}</span>
+            <span class="chevron" [class.chevron--open]="activeMobileIndex() === i"></span>
+          </button>
+          <div
+            class="mobile-accordion__panel"
+            *ngIf="activeMobileIndex() === i"
+            [id]="'grp-' + i"
+          >
+            <ul class="mobile-sub">
+              <li *ngFor="let it of group.items; trackBy: trackByLabel">
+                <a [routerLink]="it.link" [fragment]="it.fragment" (click)="closeMenu()">
+                  {{ it.label }}
+                </a>
+              </li>
+            </ul>
+            <a class="mobile-accordion__see-all" [routerLink]="group.primaryLink" (click)="closeMenu()">
+              Ver página de {{ group.label }}
+            </a>
+          </div>
+        </div>
+
+        <div class="mobile-accordion__item" role="listitem">
+          <a routerLink="/checklist" (click)="closeMenu()" class="mobile-accordion__primary">Checklist SEEDS</a>
+        </div>
+      </div>
+
+      <div class="mobile-social">
+        <!-- (Poderia inserir ícones Taiga ou links sociais futuros) -->
+      </div>
     </div>
   </div>
 </nav>
