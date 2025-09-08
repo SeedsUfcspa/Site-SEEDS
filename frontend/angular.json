@@ -76,6 +76,11 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "allowedHosts": [
+              "seeds.ufcspa.edu.br"
+            ]
+          },
           "configurations": {
             "production": {
               "buildTarget": "frontend:build:production"

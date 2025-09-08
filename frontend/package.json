@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start-desenv": "ng serve --host seeds.ufcspa.edu.br --port 4202",
-    "start-producao": "ng serve --host seeds.ufcspa.edu.br --port 4201"
+    "start-desenv": "ng serve --port 4202",
+    "start-producao": "ng serve --port 4201"
   },
   "prettier": {
     "overrides": [
