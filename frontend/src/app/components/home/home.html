@@ -22,53 +22,36 @@
 </section>
 
 <section class="section section--light">
-  <div class="features-grid">
-    <div class="feature-card" tuiCardLarge tuiAppearance="floating">
-      <tui-avatar src="@tui.user" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">ENSINO</h3>
-      <p class="feature-card__text">
-        Disciplinas na graduação, na pós-graduação (mestrado e doutorado) e cursos de curta duração.
-      </p>
+  <div class="features-grid" tuiGroup>
+    <div class="feature-card" tuiAppearance="floating">
+      <tui-avatar src="@tui.user" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">ENSINO</tui-badge>
+      <p>Disciplinas na graduação, pós e cursos de curta duração.</p>
     </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.binoculars" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">PESQUISA</h3>
-      <p class="feature-card__text">
-        Pesquisas em Engenharia de Software com foco em sustentabilidade e ODS.
-      </p>
+  <div class="feature-card" tuiAppearance="neutral">
+      <tui-avatar src="@tui.binoculars" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">PESQUISA</tui-badge>
+      <p>Pesquisa em Engenharia de Software com foco em sustentabilidade.</p>
     </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.users" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">EXTENSÃO</h3>
-      <p class="feature-card__text">
-        Soluções digitais responsáveis e alinhadas às necessidades sociais.
-      </p>
+  <div class="feature-card" tuiAppearance="neutral">
+      <tui-avatar src="@tui.users" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">EXTENSÃO</tui-badge>
+      <p>Soluções digitais responsáveis e alinhadas às necessidades sociais.</p>
     </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.bookmark" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">EVENTOS</h3>
-      <p class="feature-card__text">
-        Conectando Engenharia de Software, Sustentabilidade e os ODS.
-      </p>
+  <div class="feature-card" tuiAppearance="neutral">
+      <tui-avatar src="@tui.bookmark" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">EVENTOS</tui-badge>
+      <p>Conectando Engenharia de Software, Sustentabilidade e ODS.</p>
     </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.monitor" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">MODELOS E FERRAMENTAS</h3>
-      <p class="feature-card__text">
-        Modelos e ferramentas open source baseados em evidências para software sustentável.
-      </p>
+  <div class="feature-card" tuiAppearance="neutral">
+      <tui-avatar src="@tui.monitor" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">FERRAMENTAS</tui-badge>
+      <p>Ferramentas open source baseadas em evidências.</p>
     </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.book-open" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">PUBLICAÇÕES E BLOG</h3>
-      <p class="feature-card__text">
-        Resultados e experiências conectando teoria e prática.
-      </p>
+  <div class="feature-card" tuiAppearance="neutral">
+      <tui-avatar src="@tui.book-open" size="xl"></tui-avatar>
+      <tui-badge appearance="primary" size="s">PUBLICAÇÕES</tui-badge>
+      <p>Resultados e experiências integrando teoria e prática.</p>
     </div>
   </div>
 </section>
@@ -81,33 +64,28 @@
       sustentável e baseada em evidências.
     </p>
 
-    <div class="identity__logos">
-      <img src="assets/ods.png" alt="ODS" class="identity__logo" />
-      <img src="assets/SEEDS.png" alt="Logo SEEDS" class="identity__logo identity__logo--primary" />
-      <img src="assets/biomedica.png" alt="Informática Biomédica" class="identity__logo" />
+    <div class="identity__logos" tuiGroup>
+      <div class="identity__logo"><img src="assets/ods.png" alt="ODS" /></div>
+      <div class="identity__logo identity__logo--primary"><img src="assets/SEEDS.png" alt="Logo SEEDS" /></div>
+      <div class="identity__logo"><img src="assets/biomedica.png" alt="Informática Biomédica" /></div>
     </div>
   </div>
 
   <div class="mission-vision">
-    <div class="mission-vision__block">
-      <img src="assets/missao.jpg" alt="Missão SEEDS" class="mission-vision__image" />
+  <div class="mission-vision__block" tuiAppearance="floating">
+      <tui-avatar src="@tui.target" size="l"></tui-avatar>
       <div class="mission-vision__text">
-        <h2 class="mission-vision__title">Missão do SEEDS</h2>
-        <p>
-          Promover o desenvolvimento sustentável na engenharia de software aplicada à saúde digital...
-        </p>
+        <h2 class="mission-vision__title">Missão</h2>
+        <p>Promover o desenvolvimento sustentável na engenharia de software aplicada à saúde digital...</p>
       </div>
     </div>
 
-    <div class="mission-vision__block mission-vision__block--reverse">
-      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mission-vision__image" />
+  <div class="mission-vision__block mission-vision__block--reverse" tuiAppearance="floating">
+      <tui-avatar src="@tui.eye" size="l"></tui-avatar>
       <div class="mission-vision__text">
-        <h2 class="mission-vision__title">Visão do SEEDS</h2>
-        <p>
-          Ser referência na promoção de modelos, métodos e ferramentas que incorporem sustentabilidade...
-        </p>
+        <h2 class="mission-vision__title">Visão</h2>
+        <p>Ser referência na promoção de modelos, métodos e ferramentas que incorporem sustentabilidade...</p>
       </div>
-      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mv-img" />
     </div>
   </div>
 </section>
