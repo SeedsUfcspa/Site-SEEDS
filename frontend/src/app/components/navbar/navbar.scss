@@ -132,6 +132,9 @@ $brand-bg: linear-gradient(90deg, $brand-blue, $brand-green);
 			border-radius: .35rem;
 			transition: color $fast $ease-out, background $fast $ease-out;
 
+			&:link,
+			&:visited { color: #fff; text-decoration: none; }
+
 			&:hover { background: rgba(255,255,255,.10); }
 			&:focus-visible { @include focus-ring; }
 
@@ -154,6 +157,33 @@ $brand-bg: linear-gradient(90deg, $brand-blue, $brand-green);
 			&.is-active::after { transform: scaleX(1); }
 		}
 	}
+}
+
+/* Desktop grouped dropdowns */
+.nav__links--desktop-groups {
+	gap: 1rem;
+	@media (max-width: $bp-md) { display: none !important; }
+
+	.nav__group {
+		position: relative;
+		&::before { content:""; position:absolute; left:0; top:100%; width:100%; height:14px; }
+		&:hover > .nav__dropdown { opacity:1; transform: translateY(0); pointer-events:auto; }
+		&:hover > .nav__group-primary { background: rgba(255,255,255,.10); }
+	}
+
+	.nav__group-primary { text-decoration:none; color:#fff; font-weight:600; padding:.55rem .75rem; border-radius:.7rem; display:inline-block; transition: background $fast $ease-out; position:relative; }
+	.nav__group-primary.is-active { background: rgba(255,255,255,.18); }
+
+	.nav__dropdown { position:absolute; top:100%; left:0; margin-top:.25rem; transform: translateY(6px); width: 230px; background: rgba(0,0,0,.45); backdrop-filter: blur(10px) saturate(140%); border:1px solid rgba(255,255,255,.18); border-radius: .95rem; padding:.75rem .75rem 1rem; opacity:0; pointer-events:none; transition: opacity $fast $ease-out, transform $fast $ease-out; z-index: 200; @include elevation(2); }
+	.nav__dropdown-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.4rem; }
+	.nav__dropdown-list a { display:block; background: rgba(255,255,255,.10); color:#fff; text-decoration:none; padding:.55rem .7rem .6rem; border-radius:.65rem; font-size:.78rem; font-weight:500; letter-spacing:.4px; transition: background $fast $ease-out, transform $fast $ease-out; }
+	.nav__dropdown-list a:hover { background: rgba(255,255,255,.18); transform: translateX(3px); }
+	.nav__dropdown-list a:focus-visible { @include focus-ring; }
+	.nav__dropdown-see-all { display:inline-block; margin-top:.6rem; font-size:.6rem; letter-spacing:.45px; text-transform:uppercase; opacity:.85; color:#fff; text-decoration:none; font-weight:600; }
+	.nav__dropdown-see-all:hover { opacity:1; text-decoration:underline; }
+	.nav__dropdown-see-all:focus-visible { @include focus-ring; }
+
+	.nav__simple > a { font-weight:600; }
 }
 
 
@@ -212,6 +242,8 @@ $brand-bg: linear-gradient(90deg, $brand-blue, $brand-green);
 			text-decoration: none;
 			background: rgba(255,255,255,.12);
 			transition: background $fast $ease-out, transform $fast $ease-out;
+			&:link,
+			&:visited { color: #fff; text-decoration: none; }
 
 			&:hover { background: rgba(255,255,255,.20); transform: translateX(4px); }
 			&:active { transform: translateX(2px) scale(.97); }
@@ -220,6 +252,71 @@ $brand-bg: linear-gradient(90deg, $brand-blue, $brand-green);
 		}
 	}
 }
+
+/* Taiga accordion dentro do mobile */
+.mobile-accordion {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+	margin-top: .25rem;
+
+	&__item { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.15); border-radius: .9rem; overflow: hidden; }
+
+	&__primary {
+		appearance: none;
+		background: transparent;
+		border: 0;
+		color: #fff;
+		text-align: left;
+		width: 100%;
+		padding: .95rem 1rem .95rem 1.05rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: .75rem;
+		font-size: .95rem;
+		font-weight: 600;
+		letter-spacing: .5px;
+		cursor: pointer;
+		transition: background $fast $ease-out;
+		text-decoration: none;
+		&:hover { background: rgba(255,255,255,.10); }
+	}
+
+	.chevron { width: .65rem; height: .65rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform $fast $ease-out; }
+	.chevron--open { transform: rotate(225deg); }
+
+	&__panel { animation: contentIn .3s ease; padding: .35rem .85rem 1rem 1.2rem; background: rgba(0,0,0,.25); border-top: 1px solid rgba(255,255,255,.1); }
+	&__see-all {
+		display: inline-block; margin-top: .4rem; font-size: .7rem; letter-spacing: .5px; text-transform: uppercase; opacity: .8;
+		color:#fff; text-decoration:none; font-weight:600;
+		&:link,&:visited { color:#fff; text-decoration:none; }
+		&:hover { opacity:1; text-decoration:underline; }
+		&:focus-visible { @include focus-ring; }
+	}
+}
+
+.mobile-sub {
+	list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .25rem;
+	li a {
+		font-weight: 400;
+		font-size: .82rem;
+		padding: .45rem .55rem;
+		border-radius: .55rem;
+		background: rgba(255,255,255,.08);
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		transition: background $fast $ease-out, transform $fast $ease-out;
+		&:link,&:visited { color:#fff; text-decoration:none; }
+		&:hover { background: rgba(255,255,255,.18); transform: translateX(3px); }
+		&:active { transform: translateX(1px) scale(.97); }
+		&:focus-visible { @include focus-ring; }
+	}
+}
+
+.mobile-social { margin-top: 1rem; padding: .75rem .25rem; }
+.mobile-social a { display: inline-flex; padding: .65rem 1rem; background: rgba(255,255,255,.18); border-radius: .7rem; font-size: .85rem; text-decoration: none; color: #fff; }
 
 body.no-scroll { overflow: hidden; }
 
