@@ -25,14 +25,14 @@ $transition: .22s cubic-bezier(.22,.61,.36,1);
 .teaching-grid {
   display: grid;
   gap: $gap;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr); 
 }
 
 .teaching-card {
   position: relative;
   background: #fff;
   border-radius: $radius;
-  padding: 1.5rem;
+  padding: 2.0rem;
   box-shadow: $shadow;
   display: flex;
   flex-direction: column;
@@ -69,8 +69,8 @@ $transition: .22s cubic-bezier(.22,.61,.36,1);
     font-size: .95rem;
     color: #6a7a89;
     line-height: 1.4;
+    text-align: justify;
     padding: 0.5rem;
-    text-align: center;
   }
 
   &__list {

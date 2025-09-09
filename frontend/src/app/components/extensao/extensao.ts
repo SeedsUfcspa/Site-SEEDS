@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { TuiAvatar } from '@taiga-ui/kit';
 
+
 @Component({
-  selector: 'app-pesquisa',
+  selector: 'app-extensao',
   standalone: true,
   imports: [TuiAvatar],
-  templateUrl: './pesquisa.html',
-  styleUrl: './pesquisa.scss'
+  templateUrl: './extensao.html',
+  styleUrl: './extensao.scss'
 })
-export class Pesquisa {
+export class Extensao {
 
 }
