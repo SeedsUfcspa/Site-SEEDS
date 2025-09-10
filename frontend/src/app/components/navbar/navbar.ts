@@ -44,7 +44,7 @@ export class NavbarComponent implements OnDestroy {
       items: [
         { label: 'Missão & Visão', link: '/sobre', fragment: 'missoa-visao' },
         { label: 'Equipe', link: '/sobre', fragment: 'equipe' },
-        { label: 'Código de Conduta', link: '/sobre', fragment: 'conduta' }
+        { label: 'Código de Conduta', link: '/conduta'}
       ]
     },
     {
