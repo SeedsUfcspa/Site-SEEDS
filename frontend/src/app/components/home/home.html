@@ -8,17 +8,11 @@
 
       <div class="hero__actions">
         <button tuiButton appearance="primary" size="m">O QUE É SEEDS?</button>
-        <button tuiButton appearance="secondary" size="m">PROJETOS</button>
-        <button tuiButton appearance="flat" size="m">MISSÃO</button>
       </div>
     </div>
   </header>
 
-  <div class="hero__wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <path d="M0,40 C480,120 960,0 1440,60 L1440,100 L0,100 Z" fill="#f8f7f7" />
-    </svg>
-  </div>
+  <div class="hero__wave" aria-hidden="true"></div>
 </section>
 
 <section class="section section--light">
@@ -75,39 +69,36 @@
 
 <section class="section identity">
   <div class="identity__inner">
-    <h2 class="section__title">SEEDS</h2>
-    <p class="section__lead">
-      O logotipo do grupo SEEDS foi criado para transmitir a essência de uma engenharia ética,
-      sustentável e baseada em evidências.
-    </p>
-
-    <div class="identity__logos">
-      <img src="assets/ods.png" alt="ODS" class="identity__logo" />
-      <img src="assets/SEEDS.png" alt="Logo SEEDS" class="identity__logo identity__logo--primary" />
-      <img src="assets/biomedica.png" alt="Informática Biomédica" class="identity__logo" />
-    </div>
-  </div>
-
-  <div class="mission-vision">
-    <div class="mission-vision__block">
-      <img src="assets/missao.jpg" alt="Missão SEEDS" class="mission-vision__image" />
-      <div class="mission-vision__text">
-        <h2 class="mission-vision__title">Missão do SEEDS</h2>
-        <p>
-          Promover o desenvolvimento sustentável na engenharia de software aplicada à saúde digital...
+    <div class="identity__card" tuiCardLarge tuiAppearance="floating">
+      <div class="identity__content">
+        <h2 class="section__title">SEEDS</h2>
+        <p class="section__lead">
+          O SEEDS (Sustainable and Evidence‑based Engineering for Digital Systems) é um grupo dedicado à
+          sustentabilidade na engenharia de software aplicada à saúde digital, com ações integradas de ensino,
+          pesquisa e extensão. Vinculado à UFCSPA e desenvolvido em colaboração interinstitucional e
+          interdisciplinar, o SEEDS promove práticas orientadas por evidências ao longo do ciclo de vida de sistemas
+          digitais para gerar impacto responsável e duradouro.
         </p>
-      </div>
-    </div>
 
-    <div class="mission-vision__block mission-vision__block--reverse">
-      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mission-vision__image" />
-      <div class="mission-vision__text">
-        <h2 class="mission-vision__title">Visão do SEEDS</h2>
-        <p>
-          Ser referência na promoção de modelos, métodos e ferramentas que incorporem sustentabilidade...
-        </p>
+        <div class="identity__chips">
+          <span class="chip">Ambiental</span>
+          <span class="chip">Social</span>
+          <span class="chip">Econômica</span>
+          <span class="chip">Técnica</span>
+          <span class="chip">Individual</span>
+        </div>
+
+        <div class="identity__actions">
+          <a tuiButton appearance="primary" size="m" [routerLink]="['/sobre']" [fragment]="'missao'">Conheça o SEEDS</a>
+          <a tuiButton appearance="secondary" size="m" [routerLink]="['/sobre']" [fragment]="'conduta'">Código de Conduta</a>
+        </div>
       </div>
-      <img src="assets/visao.jpg" alt="Visão SEEDS" class="mv-img" />
+
+      <div class="identity__logos">
+        <img src="assets/logo.png" alt="Logo UFCSPA" class="identity__logo" />
+        <img src="assets/SEEDS.png" alt="Logo SEEDS" class="identity__logo identity__logo--primary" />
+        <img src="assets/SEEDSbranco.png" alt="Marca SEEDS (branco)" class="identity__logo identity__logo--ghost" />
+      </div>
     </div>
   </div>
 </section>
