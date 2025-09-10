@@ -34,7 +34,7 @@ export class NavbarComponent implements OnDestroy {
     { label: 'Ensino', link: '/ensino' },
     { label: 'Pesquisa', link: '/pesquisa' },
     { label: 'Extensão', link: '/extensao' },
-    { label: 'Checklist SEEDS', link: '/checklist' },
+    { label: 'Checklist', link: '/checklist' },
   ];
 
   readonly mobileGroups: readonly MobileGroup[] = [
