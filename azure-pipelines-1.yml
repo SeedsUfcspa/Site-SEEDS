@@ -1,0 +1,27 @@
+trigger:
+- dev
+
+pool:
+  vmImage: ubuntu-latest
+
+jobs:
+- job: BuildAndTest
+  displayName: 'SeedsUfscpa.Site-SEEDS (Build and Test Build Angular Application)'
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '20.x'
+    displayName: 'Instalar Node.js'
+
+  - script: |
+      npm install -g @angular/cli
+      npm ci
+    displayName: 'Instalar dependências'
+
+  - script: |
+      ng build --configuration production
+    displayName: 'Build Angular'
+
+  - script: |
+      ng test --watch=false --browsers=ChromeHeadless
+    displayName: 'Rodar testes Angular'
