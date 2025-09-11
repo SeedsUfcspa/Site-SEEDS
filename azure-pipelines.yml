@@ -1,6 +1,9 @@
 # Node.js that uses Angular
 
-trigger: none  # Disable CI trigger since we only want PR triggers
+trigger:
+  branches:
+    include:
+      - dev
 
 pr:
   branches:
@@ -50,7 +53,7 @@ stages:
   - stage: Deploy
     displayName: 'Deploy Application'
     dependsOn: Build
-    condition: succeeded()
+    condition: and(succeeded(), or(eq(variables['Build.Reason'], 'IndividualCI'), eq(variables['Build.Reason'], 'BatchedCI'))) # Run only on CI push, not PR
     jobs:
     - deployment: Deploy_to_Server # Usar um "deployment job" é a prática recomendada
       displayName: 'Deploy to Apache Server'
