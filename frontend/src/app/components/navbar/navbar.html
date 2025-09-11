@@ -26,7 +26,12 @@
       </li>
 
       <li class="nav__group" *ngFor="let group of mobileGroups; trackBy: trackByGroup">
-        <a class="nav__group-primary" [routerLink]="group.primaryLink" routerLinkActive="is-active">{{ group.label | uppercase }}</a>
+        <ng-container *ngIf="group.label === 'Sobre'; else regularGroupLink">
+          <a class="nav__group-primary" [routerLink]="group.primaryLink">{{ group.label | uppercase }}</a>
+        </ng-container>
+        <ng-template #regularGroupLink>
+          <a class="nav__group-primary" [routerLink]="group.primaryLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{ exact: true }">{{ group.label | uppercase }}</a>
+        </ng-template>
         <div class="nav__dropdown" role="menu" [attr.aria-label]="'Secundário ' + group.label">
           <ul class="nav__dropdown-list" role="none">
             <li role="none" *ngFor="let it of group.items; trackBy: trackByLabel">

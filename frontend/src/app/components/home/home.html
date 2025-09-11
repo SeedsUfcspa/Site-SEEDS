@@ -1,13 +1,12 @@
 <section class="hero">
   <header class="hero__inner" tuiHeader>
     <div class="hero__content">
-      <h1 class="hero__title">
-        Sustentabilidade na Engenharia de<br />Software Biomédico
-      </h1>
-      <p class="hero__subtitle">Grupo de Pesquisa da UFCSPA</p>
+      <h1 class="hero__title">Sustentabilidade na Engenharia de
+        Software Biomédico</h1>
+      <p class="hero__subtitle">Grupo interinstitucional e interdisciplinar vinculado à UFCSPA</p>
 
       <div class="hero__actions">
-        <a tuiButton appearance="primary" size="m" href="#seeds">O QUE É SEEDS?</a>
+        <a tuiButton appearance="primary" size="m" href="#seeds" class="btn btn--green">O QUE É O SEEDS?</a>
       </div>
     </div>
   </header>
@@ -17,53 +16,29 @@
 
 <section class="section section--light">
   <div class="features-grid">
-    <div class="feature-card" tuiCardLarge tuiAppearance="floating">
-      <tui-avatar src="@tui.user" size="xl" class="feature-card__icon"></tui-avatar>
+    <a class="feature-card" tuiCardLarge tuiAppearance="floating" [routerLink]="['/ensino']">
+      <tui-avatar src="@tui.graduation-cap" size="xl" class="feature-card__icon"></tui-avatar>
       <h3 class="feature-card__title">ENSINO</h3>
-      <p class="feature-card__text">
-        Disciplinas na graduação, na pós-graduação (mestrado e doutorado) e cursos de curta duração.
-      </p>
-    </div>
+      <p class="feature-card__text">Disciplinas, projetos e formação em sustentabilidade.</p>
+    </a>
 
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+    <a class="feature-card" tuiCardLarge tuiAppearance="neutral" [routerLink]="['/pesquisa']">
       <tui-avatar src="@tui.binoculars" size="xl" class="feature-card__icon"></tui-avatar>
       <h3 class="feature-card__title">PESQUISA</h3>
-      <p class="feature-card__text">
-        Pesquisas em Engenharia de Software com foco em sustentabilidade e ODS.
-      </p>
-    </div>
+      <p class="feature-card__text">Modelos, métodos e evidências para software sustentável.</p>
+    </a>
 
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
+    <a class="feature-card" tuiCardLarge tuiAppearance="neutral" [routerLink]="['/extensao']">
       <tui-avatar src="@tui.users" size="xl" class="feature-card__icon"></tui-avatar>
       <h3 class="feature-card__title">EXTENSÃO</h3>
-      <p class="feature-card__text">
-        Soluções digitais responsáveis e alinhadas às necessidades sociais.
-      </p>
-    </div>
+      <p class="feature-card__text">Projetos e eventos com impacto social responsável.</p>
+    </a>
 
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.bookmark" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">EVENTOS</h3>
-      <p class="feature-card__text">
-        Conectando Engenharia de Software, Sustentabilidade e os ODS.
-      </p>
-    </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.monitor" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">MODELOS E FERRAMENTAS</h3>
-      <p class="feature-card__text">
-        Modelos e ferramentas open source baseados em evidências para software sustentável.
-      </p>
-    </div>
-
-    <div class="feature-card" tuiCardLarge tuiAppearance="neutral">
-      <tui-avatar src="@tui.book-open" size="xl" class="feature-card__icon"></tui-avatar>
-      <h3 class="feature-card__title">PUBLICAÇÕES E BLOG</h3>
-      <p class="feature-card__text">
-        Resultados e experiências conectando teoria e prática.
-      </p>
-    </div>
+    <a class="feature-card" tuiCardLarge tuiAppearance="neutral" [routerLink]="['/checklist']">
+      <tui-avatar src="@tui.check-circle" size="xl" class="feature-card__icon"></tui-avatar>
+      <h3 class="feature-card__title">CHECKLIST SEEDS</h3>
+      <p class="feature-card__text">Checklist interativo baseado em evidências.</p>
+    </a>
   </div>
 </section>
 
@@ -72,12 +47,16 @@
     <div class="identity__card" tuiCardLarge tuiAppearance="floating">
       <div class="identity__content">
         <h2 class="section__title">SEEDS</h2>
-        <p class="section__lead" style="text-align: justify;">
-          O SEEDS (Sustainable and Evidence‑based Engineering for Digital Systems) é um grupo dedicado à
-          sustentabilidade na engenharia de software aplicada à saúde digital, com ações integradas de ensino,
-          pesquisa e extensão. Vinculado à UFCSPA e desenvolvido em colaboração interinstitucional e
-          interdisciplinar, o SEEDS promove práticas orientadas por evidências ao longo do ciclo de vida de sistemas
-          digitais para gerar impacto responsável e duradouro.
+        <p class="section__lead">
+          O SEEDS (Sustainable and Evidence-based Engineering for Digital Systems) é um grupo dedicado à
+          sustentabilidade na engenharia de software aplicada à saúde digital, com ações integradas de ensino, pesquisa
+          e extensão.
+        </p>
+        <p class="section__lead">
+          Vinculado à UFCSPA e desenvolvido em colaboração interinstitucional e interdisciplinar, o SEEDS promove
+          práticas orientadas por evidências ao longo do ciclo de vida de sistemas digitais, contemplando as cinco
+          dimensões da sustentabilidade — ambiental, social, econômica, técnica e individual — para gerar impacto
+          responsável e duradouro.
         </p>
 
         <div class="identity__chips">
@@ -87,17 +66,64 @@
           <span class="chip">Técnica</span>
           <span class="chip">Individual</span>
         </div>
-
-        <div class="identity__actions">
-          <a tuiButton appearance="primary" size="m" [routerLink]="['/sobre']" [fragment]="'missao'">Conheça o SEEDS</a>
-          <a tuiButton appearance="secondary" size="m" [routerLink]="['/conduta']">Código de Conduta</a>
-        </div>
       </div>
 
       <div class="identity__logos">
-        <img src="assets/logo.png" alt="Logo UFCSPA" class="identity__logo" />
-        <img src="assets/SEEDS.png" alt="Logo SEEDS" class="identity__logo identity__logo--primary" />
-        <img src="assets/SEEDSbranco.png" alt="Marca SEEDS (branco)" class="identity__logo identity__logo--ghost" />
+        <img src="assets/SEEDSLogoESigla.png" alt="Logo SEEDS" class="identity__logo" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mission-vision" aria-labelledby="missao visao" href="#missao-visao" id="missao-visao">
+  <div class="mission-vision__grid">
+    <article class="mv-card" tuiCardLarge tuiAppearance="floating" id="missao">
+      <header class="mv-card__header">
+        <tui-avatar src="@tui.bookmark" size="l"
+          class="mission-vision__icon mission-vision__icon--mission"></tui-avatar>
+        <h3 class="mv-card__title">Missão</h3>
+      </header>
+      <p class="mv-card__text">
+        Promover o desenvolvimento sustentável na engenharia de software aplicado à saúde digital, por meio da
+        produção e disseminação de conhecimento científico, de práticas baseadas em evidências e da formação de
+        profissionais conscientes, éticos e comprometidos com o bem-estar social, ambiental, técnico, econômico e
+        individual.
+      </p>
+    </article>
+
+    <article class="mv-card" tuiCardLarge tuiAppearance="neutral" id="visao">
+      <header class="mv-card__header">
+        <tui-avatar src="@tui.binoculars" size="l"
+          class="mission-vision__icon mission-vision__icon--vision"></tui-avatar>
+        <h3 class="mv-card__title">Visão</h3>
+      </header>
+      <p class="mv-card__text">
+        Ser reconhecido como referência nacional e internacional na promoção de modelos, métodos, padrões e
+        ferramentas que incorporem a sustentabilidade ao desenvolvimento de software, especialmente em contextos da
+        saúde digital, contribuindo para soluções tecnológicas mais éticas, responsáveis e alinhadas aos Objetivos de
+        Desenvolvimento Sustentável da Agenda 2030.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="section section--light section--balanced" id="equipe">
+  <h2 class="section__title">Conheça quem faz o SEEDS acontecer!</h2>
+  <app-equipe></app-equipe>
+</section>
+
+<section class="section" id="codigo" href="#equipe">
+  <div class="identity__inner">
+    <div class="identity__card identity__card--centered" tuiCardLarge tuiAppearance="neutral">
+      <div class="identity__content">
+        <h2 class="section__title">Código de Conduta</h2>
+        <p class="section__lead">
+          Nosso compromisso com um ambiente seguro, acolhedor e inclusivo. Conheça as diretrizes e como reportar
+          violações.
+        </p>
+        <div class="identity__actions">
+          <a tuiButton appearance="primary" size="m" [routerLink]="['/conduta']" class="btn btn--blue">Ler o Código</a>
+        </div>
       </div>
     </div>
   </div>
