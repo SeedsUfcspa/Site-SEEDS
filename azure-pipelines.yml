@@ -5,7 +5,7 @@ trigger: none  # Disable CI trigger since we only want PR triggers
 pr:
   branches:
     include:
-      - desev
+      - dev
   autoCancel: false
 
 pool:
