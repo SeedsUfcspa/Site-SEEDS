@@ -28,7 +28,7 @@ export class EquipeComponent {
       avatar: 'assets/fotos/juliana.jpg',
       cor: '#ff9800',
       linkedin: 'https://www.linkedin.com/in/julianaherbert/',
-      lattes: 'http://lattes.cnpq.br/1234567890123456',
+      lattes: 'http://lattes.cnpq.br/7180951922379856',
       coordenacao: true
     },
     {

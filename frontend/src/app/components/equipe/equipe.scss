@@ -22,6 +22,8 @@ $bp-lg: 1024px;
   margin: 0 auto;
   max-width: 1300px;
   padding: 0 .5rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
 
   @media (min-width: $bp-md) { gap: $gap-lg; }
   @media (max-width: 540px) { --min-col: 100%; }

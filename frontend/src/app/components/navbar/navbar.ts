@@ -30,7 +30,7 @@ export class NavbarComponent implements OnDestroy {
 
   readonly desktopLinks: readonly NavLink[] = [
     { label: 'Início', link: '/' },
-    { label: 'Sobre', link: '/sobre' },
+    { label: 'Sobre', link: '/' },
     { label: 'Ensino', link: '/ensino' },
     { label: 'Pesquisa', link: '/pesquisa' },
     { label: 'Extensão', link: '/extensao' },
@@ -40,11 +40,11 @@ export class NavbarComponent implements OnDestroy {
   readonly mobileGroups: readonly MobileGroup[] = [
     {
       label: 'Sobre',
-      primaryLink: '/sobre',
+      primaryLink: '/',
       items: [
-        { label: 'Missão & Visão', link: '/sobre', fragment: 'missoa-visao' },
-        { label: 'Equipe', link: '/sobre', fragment: 'equipe' },
-        { label: 'Código de Conduta', link: '/conduta'}
+        { label: 'Missão & Visão', link: '/', fragment: 'missao-visao' },
+        { label: 'Equipe', link: '/', fragment: 'equipe' },
+        { label: 'Código de Conduta', link: '/conduta' }
       ]
     },
     {

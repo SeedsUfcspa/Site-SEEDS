@@ -10,7 +10,6 @@
 </ng-template>
 
 <section *ngIf="coordenacao?.length" class="coordenacao section-wrap">
-  <h2 class="section-title">COORDENAÇÃO</h2>
   <div class="grid-container">
     <div *ngFor="let membro of coordenacao" class="feature-card coord">
       <div class="coord-media">
@@ -29,7 +28,6 @@
 </section>
 
 <section *ngIf="equipeRestante?.length" class="equipe section-wrap">
-  <h2 class="section-title">EQUIPE</h2>
   <div class="grid-container">
     <div *ngFor="let membro of equipeRestante" class="feature-card">
       <div class="feature-icon" [style.background-color]="membro.cor">
